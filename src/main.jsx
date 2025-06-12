@@ -9,6 +9,9 @@ import {
   RouterProvider,
 } from "react-router";
 import Home from './Components/Home/Home.jsx';
+import { ThemeProvider } from './Theme.jsx';
+import { AuthProvider } from './context/AuthContext.jsx';
+import { Toaster } from 'react-hot-toast';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +34,13 @@ const router = createBrowserRouter([
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+   <ThemeProvider>
+
+        <AuthProvider>
+          <RouterProvider router={router}></RouterProvider>
+          <Toaster />
+        </AuthProvider>
+     
+    </ThemeProvider>
   </StrictMode>,
 )

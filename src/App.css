@@ -1,0 +1,84 @@
+:root {
+  --primary-blue: rgb(0, 0, 255);
+  --secondary-blue: rgb(96, 96, 182);
+
+  --text-primary-light: black;
+  --text-primary-dark: white;
+
+  --text-secondary-light: rgb(70, 70, 70);
+  --text-secondary-dark: rgb(160, 160, 160);
+
+  --bg-primary-light: white;
+  --bg-primary-dark: black;
+
+  --bg-secondary-light: rgb(212, 212, 212);
+  --bg-secondary-dark: rgb(34, 34, 34);
+
+  --bg-section-light: rgb(249, 250, 251);
+  --bg-section-dark: rgb(156, 163, 175);
+
+  --bg-navbar-light: rgb(236, 240, 245);
+  --bg-navbar-dark: black;
+}
+
+.light-theme {
+  --text-primary: var(--text-primary-light);
+  --text-secondary: var(--text-secondary-light);
+  --bg-primary: var(--bg-primary-light);
+  --bg-section: var(--bg-section-light);
+  --bg-secondary: var(--bg-secondary-light);
+  --bg-navbar: var(--bg-navbar-light);
+}
+
+.dark-theme {
+  --text-primary: var(--text-primary-dark);
+  --text-secondary: var(--text-secondary-dark);
+  --bg-primary: var(--bg-primary-dark);
+  --bg-section: var(--bg-section-dark);
+  --bg-secondary: var(--bg-secondary-dark);
+  --bg-navbar: var(--bg-navbar-dark);
+}
+
+.App{
+    min-height: 100vh;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+input,label,button,p,span,h1,h2,a{
+    color: var(--text-primary);
+}
+
+.nav{
+    background-color: var(--bg-navbar);
+}
+
+.popular-h{
+    background-color: var(--bg-primary);
+}
+.popular-h-card{
+    background-color: var(--bg-section);
+}
+.feature-g{
+    background-color: var(--bg-primary);
+}
+.feature-g-card{
+    background-color: var(--bg-section);
+}
+
+.testimonial-card{
+  background-color: var(--bg-section);
+}
+.all-group-card{
+  background-color: var(--bg-section);
+}
+.group-details-card{
+  background-color: var(--bg-section);
+}
+.create-page-op{
+  background-color: var(--bg-primary);
+}
+
+.footer{
+  background-color: var(--bg-navbar);
+}
