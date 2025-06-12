@@ -14,10 +14,32 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
+  // Helper to get JWT from backend and save to localStorage
+  const saveJWT = async (email) => {
+    try {
+      const response = await fetch("http://localhost:5000/jwt", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to get JWT token");
+      }
+
+      const data = await response.json();
+      localStorage.setItem("access-token", data.token);
+    } catch (error) {
+      toast.error("Failed to get access token.");
+      console.error(error);
+    }
+  };
+
   const handleEmailLogin = async (e) => {
     e.preventDefault();
     try {
       await loginWithEmail(email, password);
+      await saveJWT(email);
       toast.success("Login successful!");
       navigate(from, { replace: true });
     } catch (error) {
@@ -27,7 +49,9 @@ const Login = () => {
 
   const handleGoogleLogin = async () => {
     try {
-      await loginWithGoogle();
+      const result = await loginWithGoogle();
+      // result.user.email contains the logged-in user's email
+      await saveJWT(result.user.email);
       toast.success("Logged in with Google!");
       navigate(from, { replace: true });
     } catch (error) {
@@ -42,7 +66,9 @@ const Login = () => {
       </Helmet>
       <div className="flex justify-center items-center lg:min-h-screen md:h-[50vh] lg:my-0 lg:mx-0 my-8 mx-4 ">
         <div className="w-full max-w-md border-2 border-white rounded-2xl shadow-lg p-8">
-          <h2 className="text-3xl font-bold text-center text-indigo-600 mb-6">Login</h2>
+          <h2 className="text-3xl font-bold text-center text-indigo-600 mb-6">
+            Login
+          </h2>
           <form onSubmit={handleEmailLogin} className="space-y-4">
             <input
               type="email"
@@ -50,7 +76,7 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
               placeholder="Email"
-              className="w-full px-4 py-2 border border-gray-300    rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400"
             />
             <input
               type="password"
@@ -85,8 +111,6 @@ const Login = () => {
               Register
             </Link>
           </p>
-
-         
         </div>
       </div>
     </>

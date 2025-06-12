@@ -15,6 +15,8 @@ import { Toaster } from 'react-hot-toast';
 import Login from './Components/Login/Login.jsx';
 import Register from './Components/Register/Register.jsx';
 import { HelmetProvider } from 'react-helmet-async';
+import PrivateRoute from './Components/Routes/PrivateRoute.jsx';
+import TutorDetailsPage from './Components/TutorDetailsPage/TutorDetailsPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +36,14 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register />
+      },
+      {
+        path: '/tutor-details-page/:id',
+        element: (
+          <PrivateRoute>
+            <TutorDetailsPage/>
+          </PrivateRoute>
+        )
       },
 
     ]
