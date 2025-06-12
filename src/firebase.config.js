@@ -1,16 +1,19 @@
 
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDqtC_OsipjXwv_v6BUsBacy8vrcC579Js",
-  authDomain: "secjaf-tutor-booking-platform.firebaseapp.com",
-  projectId: "secjaf-tutor-booking-platform",
-  storageBucket: "secjaf-tutor-booking-platform.firebasestorage.app",
-  messagingSenderId: "909259037099",
-  appId: "1:909259037099:web:c409ab4d2598504ac1daee"
+  apiKey: "AIzaSyDu_7M7yO1dlNqdyA-ciyOM3n_ouvvJMVI",
+  authDomain: "language-exchange-app-dde7b.firebaseapp.com",
+  projectId: "language-exchange-app-dde7b",
+  storageBucket: "language-exchange-app-dde7b.firebasestorage.app",
+  messagingSenderId: "854985752819",
+  appId: "1:854985752819:web:05e0e6b7a02a8202a1b786"
 };
 
 
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
+
+export { auth, googleProvider };

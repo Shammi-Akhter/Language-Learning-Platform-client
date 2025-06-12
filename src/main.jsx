@@ -12,6 +12,9 @@ import Home from './Components/Home/Home.jsx';
 import { ThemeProvider } from './Theme.jsx';
 import { AuthProvider } from './context/AuthContext.jsx';
 import { Toaster } from 'react-hot-toast';
+import Login from './Components/Login/Login.jsx';
+import Register from './Components/Register/Register.jsx';
+import { HelmetProvider } from 'react-helmet-async';
 
 const router = createBrowserRouter([
   {
@@ -23,11 +26,15 @@ const router = createBrowserRouter([
         element: <Home />
 
       },
-      // {
-      //   path: '/',
-      //   element: ,
-
-      // },
+     {
+        path: '/login',
+        element:
+          <Login />
+      },
+      {
+        path: '/register',
+        element: <Register />
+      },
 
     ]
   }
@@ -35,12 +42,12 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
    <ThemeProvider>
-
+<HelmetProvider>
         <AuthProvider>
           <RouterProvider router={router}></RouterProvider>
           <Toaster />
         </AuthProvider>
-     
+     </HelmetProvider>
     </ThemeProvider>
   </StrictMode>,
 )
