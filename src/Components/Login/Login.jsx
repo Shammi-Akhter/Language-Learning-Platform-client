@@ -15,12 +15,15 @@ const Login = () => {
   const from = location.state?.from?.pathname || "/";
 
   // Helper to get JWT from backend and save to localStorage
-  const saveJWT = async (email) => {
+  const saveJWT = async (email, displayName = null) => {
     try {
       const response = await fetch("http://localhost:5000/jwt", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ 
+          email,
+          displayName: displayName || email // Use displayName or fallback to email
+        }),
       });
 
       if (!response.ok) {
@@ -28,18 +31,21 @@ const Login = () => {
       }
 
       const data = await response.json();
-      localStorage.setItem("access-token", data.token);
+      localStorage.setItem("access-token", data.token); // Keep using "access-token"
+      console.log("JWT token saved successfully"); // Debug log
     } catch (error) {
       toast.error("Failed to get access token.");
-      console.error(error);
+      console.error("JWT Error:", error);
     }
   };
 
   const handleEmailLogin = async (e) => {
     e.preventDefault();
     try {
-      await loginWithEmail(email, password);
-      await saveJWT(email);
+      const result = await loginWithEmail(email, password);
+      // Get displayName from result if available, fallback to email
+      const displayName = result?.user?.displayName || result?.displayName || email;
+      await saveJWT(email, displayName);
       toast.success("Login successful!");
       navigate(from, { replace: true });
     } catch (error) {
@@ -50,8 +56,11 @@ const Login = () => {
   const handleGoogleLogin = async () => {
     try {
       const result = await loginWithGoogle();
-      // result.user.email contains the logged-in user's email
-      await saveJWT(result.user.email);
+      // Get both email and displayName from Google login result
+      const userEmail = result.user.email;
+      const displayName = result.user.displayName || result.user.email;
+      
+      await saveJWT(userEmail, displayName);
       toast.success("Logged in with Google!");
       navigate(from, { replace: true });
     } catch (error) {
