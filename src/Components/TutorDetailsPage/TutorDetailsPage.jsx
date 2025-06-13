@@ -1,11 +1,97 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
+import { toast } from 'react-hot-toast';
+import { useAuth } from '../../context/AuthContext';
 
-const TutorDetailsPage = () => {
-    return (
-        <div>
-            Tutor Details Page
-        </div>
-    );
+const TutorDetails = () => {
+  const { id } = useParams();
+  const [tutor, setTutor] = useState(null);
+  const [isBooked, setIsBooked] = useState(false);
+  const { user } = useAuth();
+
+  // Load tutor info
+  useEffect(() => {
+    fetch(`http://localhost:5000/tutors/${id}`)
+      .then(res => res.json())
+      .then(data => setTutor(data));
+  }, [id]);
+
+  // Check if this user already booked this tutor
+  useEffect(() => {
+    if (user?.email) {
+      fetch(`http://localhost:5000/bookings?tutorId=${id}&email=${user.email}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data?.alreadyBooked) {
+            setIsBooked(true);
+          }
+        })
+        .catch(() => {
+          setIsBooked(false);
+        });
+    }
+  }, [id, user?.email]);
+
+  const handleBooking = () => {
+    if (isBooked) {
+      toast.error("Already booked");
+      return;
+    }
+
+    const bookingData = {
+      tutorId: tutor._id,
+      image: tutor.image,
+      language: tutor.language,
+      price: tutor.price,
+      tutorEmail: tutor.email,
+      email: user?.email,
+    };
+
+    fetch('http://localhost:5000/bookings', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(bookingData),
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.insertedId) {
+          toast.success('Booking successful!');
+          setIsBooked(true); // Mark as booked
+        } else if (data.message === 'Already booked') {
+          toast.error('Already booked');
+          setIsBooked(true);
+        }
+      })
+      .catch(() => toast.error('Booking failed'));
+  };
+
+  if (!tutor) return <p>Loading...</p>;
+
+  return (
+    <div className="p-6 max-w-2xl mx-auto">
+      <img
+        src={tutor.image}
+        alt={tutor.name}
+        className="w-full h-64 object-cover rounded"
+      />
+      <h2 className="text-3xl font-bold mt-4">{tutor.name}</h2>
+      <p className="mt-2">Language: {tutor.language}</p>
+      <p>Price: ${tutor.price}</p>
+      <p>Rating: {tutor.review}</p>
+      <p className="mt-2">{tutor.details}</p>
+      <p className="text-sm text-gray-500 mt-1">Email: {tutor.email}</p>
+
+      <button
+        onClick={handleBooking}
+        disabled={isBooked}
+        className={`mt-4 px-6 py-2 text-white rounded ${
+          isBooked ? 'bg-gray-400 cursor-not-allowed' : 'bg-green-500 hover:bg-green-600'
+        }`}
+      >
+        {isBooked ? 'Booked' : 'Book'}
+      </button>
+    </div>
+  );
 };
 
-export default TutorDetailsPage;
+export default TutorDetails;

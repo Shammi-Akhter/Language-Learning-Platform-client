@@ -16,7 +16,9 @@ import Login from './Components/Login/Login.jsx';
 import Register from './Components/Register/Register.jsx';
 import { HelmetProvider } from 'react-helmet-async';
 import PrivateRoute from './Components/Routes/PrivateRoute.jsx';
-import TutorDetailsPage from './Components/TutorDetailsPage/TutorDetailsPage.jsx';
+import Category from './Components/Category/Category.jsx';
+import FindTutorsCategory from './Components/FindTutorsCategory/FindTutorsCategory.jsx';
+import TutorDetails from './Components/TutorDetailsPage/TutorDetailsPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -38,10 +40,22 @@ const router = createBrowserRouter([
         element: <Register />
       },
       {
-        path: '/tutor-details-page/:id',
+        path: '/category',
+        element: <Category />
+      },
+      {
+        path: '/find-tutors/:category',
         element: (
           <PrivateRoute>
-            <TutorDetailsPage/>
+            <FindTutorsCategory/>
+          </PrivateRoute>
+        )
+      },
+      {
+        path: '/tutors/:id',
+        element: (
+          <PrivateRoute>
+            <TutorDetails/>
           </PrivateRoute>
         )
       },

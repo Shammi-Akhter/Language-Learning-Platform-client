@@ -18,8 +18,8 @@ const Navbar = () => {
         <div className="navbar-start">
           <Link to="/">
             <img
-              className="lg:w-[200px] w-[150px] "
-              src="https://i.postimg.cc/13DzgNM7/Logo-hobbyhive.png"
+              className="lg:w-[220px] w-[150px] "
+              src="/images/logo.png"
               alt="Logo"
             />
           </Link>
@@ -29,7 +29,7 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 flex gap-5">
             <NavLink to="/" className="cursor-pointer text-blue-600 md:font-bold">Home</NavLink>
-            <NavLink to="/all-groups" className="cursor-pointer text-amber-400 md:font-bold">All Groups</NavLink>
+            {/* <NavLink to="/category" className="cursor-pointer text-amber-400 md:font-bold">Category</NavLink> */}
             {user && <NavLink to="/my-group-page" className="cursor-pointer text-blue-600 md:font-bold">My Group</NavLink>}
             {user && <NavLink to="/create-group" className="cursor-pointer text-amber-400 md:font-bold">Create Group</NavLink>}
           </ul>
