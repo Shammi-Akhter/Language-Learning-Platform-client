@@ -19,6 +19,7 @@ import PrivateRoute from './Components/Routes/PrivateRoute.jsx';
 import Category from './Components/Category/Category.jsx';
 import FindTutorsCategory from './Components/FindTutorsCategory/FindTutorsCategory.jsx';
 import TutorDetails from './Components/TutorDetailsPage/TutorDetailsPage.jsx';
+import MyBookedTutor from './Components/MyBookedTutor/MyBookedTutor.jsx';
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <FindTutorsCategory/>
+          </PrivateRoute>
+        )
+      },
+      {
+        path: '/my-booked-tutors',
+        element: (
+          <PrivateRoute>
+            <MyBookedTutor/>
           </PrivateRoute>
         )
       },

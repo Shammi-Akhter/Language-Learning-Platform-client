@@ -11,7 +11,11 @@ const TutorDetails = () => {
 
   // Load tutor info
   useEffect(() => {
-    fetch(`http://localhost:5000/tutors/${id}`)
+    fetch(`http://localhost:5000/tutors/${id}`,{
+         headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    })
       .then(res => res.json())
       .then(data => setTutor(data));
   }, [id]);
@@ -48,10 +52,13 @@ const TutorDetails = () => {
     };
 
     fetch('http://localhost:5000/bookings', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(bookingData),
-    })
+  method: 'POST',
+  headers: { 
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${localStorage.getItem('token')}`
+  },
+  body: JSON.stringify(bookingData),
+})
       .then(res => res.json())
       .then(data => {
         if (data.insertedId) {
