@@ -10,7 +10,7 @@ const MyBookedTutor = () => {
   useEffect(() => {
     if (!user?.email) return;
 
-    const token = localStorage.getItem('token');
+ const token = localStorage.getItem('access-token');
 
     const fetchBookings = async () => {
       try {
@@ -36,12 +36,13 @@ const MyBookedTutor = () => {
     fetchBookings();
   }, [user]);
 
-  
-const handleReview = async (tutorId) => {
+ const handleReview = async (tutorId, bookingId) => {
+  setLoadingStates(prev => ({ ...prev, [tutorId]: true }));
   try {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('access-token');
     
-    const res = await fetch(`http://localhost:5000/tutors/${tutorId}/review`, {
+    // 1. Update tutor review count
+    const resTutor = await fetch(`http://localhost:5000/tutors/${tutorId}/review`, {
       method: 'PATCH',
       headers: { 
         'Content-Type': 'application/json',
@@ -50,16 +51,34 @@ const handleReview = async (tutorId) => {
       body: JSON.stringify({ email: user.email })
     });
 
-    if (!res.ok) {
-      const errorData = await res.json();
+    if (!resTutor.ok) {
+      const errorData = await resTutor.json();
       throw new Error(errorData.error || 'Failed to submit review');
     }
 
-   
+    // 2. Update booking reviewed status
+    const resBooking = await fetch(`http://localhost:5000/bookings/${bookingId}/reviewed`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    });
+
+    if (!resBooking.ok) {
+      const errorData = await resBooking.json();
+      throw new Error(errorData.message || 'Failed to update booking review status');
+    }
+
+    // 3. Update local state with the new review count
     setBookings(prev =>
       prev.map(b => 
-        b.tutorId === tutorId 
-          ? { ...b, reviewed: true, review: (b.review || 0) + 1 }
+        b._id === bookingId
+          ? { 
+              ...b, 
+              reviewed: true,
+              tutorReviewCount: (b.tutorReviewCount || 0) + 1 
+            }
           : b
       )
     );
@@ -68,10 +87,10 @@ const handleReview = async (tutorId) => {
   } catch (err) {
     console.error("Review error:", err);
     toast.error(err.message);
+  } finally {
+    setLoadingStates(prev => ({ ...prev, [tutorId]: false }));
   }
 };
-
-
   return (
     <div className="p-6 max-w-4xl mx-auto">
       <h1 className="text-2xl font-bold mb-4">My Booked Tutors</h1>
@@ -79,24 +98,24 @@ const handleReview = async (tutorId) => {
         <p>No tutors booked yet.</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {bookings.map((tutor) => (
-            <div key={tutor._id} className="border p-4 rounded shadow">
-              <img src={tutor.image} alt="tutor" className="w-full h-40 object-cover rounded" />
-              <h2 className="text-xl font-semibold mt-2">{tutor.language}</h2>
-              <p>Price: ${tutor.price}</p>
-              <p>Reviews: {tutor.review || 0}</p>
+          {bookings.map((booking) => (
+            <div key={booking._id} className="border p-4 rounded shadow">
+              <img src={booking.image} alt="tutor" className="w-full h-40 object-cover rounded" />
+              <h2 className="text-xl font-semibold mt-2">{booking.language}</h2>
+              <p>Price: ${booking.price}</p>
+             <p>Reviews: {booking.tutorReviewCount || 0}</p>
               <button
-                onClick={() => handleReview(tutor.tutorId)}
-                disabled={tutor.reviewed || loadingStates[tutor.tutorId]}
+                onClick={() => handleReview(booking.tutorId, booking._id)}
+                disabled={booking.reviewed || loadingStates[booking.tutorId]}
                 className={`mt-2 px-4 py-2 rounded ${
-                  tutor.reviewed 
+                  booking.reviewed 
                     ? 'bg-gray-400 cursor-not-allowed'
                     : 'bg-blue-600 hover:bg-blue-700 text-white'
                 }`}
               >
-                {tutor.reviewed 
+                {booking.reviewed 
                   ? 'Already Reviewed' 
-                  : loadingStates[tutor.tutorId] 
+                  : loadingStates[booking.tutorId] 
                     ? 'Processing...' 
                     : 'Review'}
               </button>
