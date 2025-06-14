@@ -29,9 +29,9 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 flex gap-5">
             <NavLink to="/" className="cursor-pointer text-blue-600 md:font-bold">Home</NavLink>
-            <NavLink to="/my-booked-tutors" className="cursor-pointer text-amber-400 md:font-bold">My Booked Tutor</NavLink>
-            {user && <NavLink to="/add-tutor" className="cursor-pointer text-blue-600 md:font-bold">Add Tutor</NavLink>}
-            {user && <NavLink to="/create-group" className="cursor-pointer text-amber-400 md:font-bold">Create Group</NavLink>}
+            {user && <NavLink to="/my-booked-tutors" className="cursor-pointer text-amber-400 md:font-bold">My Booked Tutor</NavLink>}
+            {user && <NavLink to="/add-tutorials" className="cursor-pointer text-blue-600 md:font-bold">Add Tutorials</NavLink>}
+            {user && <NavLink to="/my-tutorials" className="cursor-pointer text-amber-400 md:font-bold">My Tutorials</NavLink>}
           </ul>
         </div>
 

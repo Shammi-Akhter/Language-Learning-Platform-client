@@ -21,6 +21,7 @@ import FindTutorsCategory from './Components/FindTutorsCategory/FindTutorsCatego
 import TutorDetails from './Components/TutorDetailsPage/TutorDetailsPage.jsx';
 import MyBookedTutor from './Components/MyBookedTutor/MyBookedTutor.jsx';
 import AddTutorial from './Components/AddTutorial/AddTutorial.jsx';
+import MyTutorials from './Components/MyTutorials/MyTutorials.jsx';
 
 const router = createBrowserRouter([
   {
@@ -62,7 +63,7 @@ const router = createBrowserRouter([
         )
       },
       {
-        path: '/add-tutor',
+        path: '/add-tutorials',
         element: (
           <PrivateRoute>
             <AddTutorial/>
@@ -74,6 +75,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <TutorDetails/>
+          </PrivateRoute>
+        )
+      },
+      {
+        path: '/my-tutorials',
+        element: (
+          <PrivateRoute>
+            <MyTutorials/>
           </PrivateRoute>
         )
       },
