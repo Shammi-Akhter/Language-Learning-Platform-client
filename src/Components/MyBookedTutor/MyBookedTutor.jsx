@@ -102,6 +102,7 @@ const MyBookedTutor = () => {
             <div key={booking._id} className="border p-4 rounded shadow">
               <img src={booking.image} alt="tutor" className="w-full h-40 object-cover rounded" />
               <h2 className="text-xl font-semibold mt-2">{booking.language}</h2>
+              <p>Language: {booking.language}</p>
               <p>Price: ${booking.price}</p>
              <p>Reviews: {booking.tutorReviewCount || 0}</p>
               <button

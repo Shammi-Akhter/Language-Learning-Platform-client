@@ -49,14 +49,14 @@ setTutorials(safeData);
   }, [token]);
 
   return (
-    <div className="p-5 max-w-6xl mx-auto md:h-[370px]">
+    <div className="p-5 max-w-6xl mx-auto md:h-[3270px] lg:h-[600px]">
       <h1 className="text-2xl font-bold mb-4 text-center">My Tutorials</h1>
       {tutorials.length === 0 ? (
         <p className="text-center">No tutorials found.</p>
       ) : (
         <div className="overflow-x-auto">
           <table className="min-w-full border">
-            <thead className="bg-gray-200">
+            <thead className="bg-gray-400">
               <tr>
                 <th className="p-2">Image</th>
                 <th className="p-2">Language</th>
@@ -78,13 +78,13 @@ setTutorials(safeData);
                   <td className="p-2">{item.review}</td>
                   <td className="p-2 space-x-2">
                     <button
-                      className="bg-blue-500 text-white px-3 py-1 rounded"
+                      className="bg-blue-300 text-white px-3 cursor-pointer py-1 rounded"
                       onClick={() => setSelected(item)}
                     >
                       Update
                     </button>
                     <button
-                      className="bg-red-500 text-white px-3 py-1 rounded"
+                      className="bg-red-600 cursor-pointer text-white px-3 py-1 rounded"
                       onClick={() => handleDelete(item._id)}
                     >
                       Delete

@@ -29,6 +29,7 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 flex gap-5">
             <NavLink to="/" className="cursor-pointer text-blue-600 md:font-bold">Home</NavLink>
+            <NavLink to="/category" className="cursor-pointer text-blue-600 md:font-bold">Find Tutors</NavLink>
             {user && <NavLink to="/my-booked-tutors" className="cursor-pointer text-amber-400 md:font-bold">My Booked Tutor</NavLink>}
             {user && <NavLink to="/add-tutorials" className="cursor-pointer text-blue-600 md:font-bold">Add Tutorials</NavLink>}
             {user && <NavLink to="/my-tutorials" className="cursor-pointer text-amber-400 md:font-bold">My Tutorials</NavLink>}
@@ -60,15 +61,15 @@ const Navbar = () => {
                 </span>
               </div>
               <Link to="/">
-              <button onClick={logout} className="btn btn-sm bg-amber-500 text-white rounded-2xl">Logout
+              <button onClick={logout} className="btn btn-sm bg-blue-300 text-white rounded-2xl">Logout
                
               </button>
                </Link>
             </>
           ) : (
             <>
-              <Link to="/login" className="btn rounded-2xl bg-blue-400 text-white">Log In</Link>
-              <Link to="/register" className="btn rounded-2xl bg-blue-400 text-white">Register</Link>
+              <Link to="/login" className="btn rounded-2xl bg-blue-200 text-white">Log In</Link>
+              <Link to="/register" className="btn rounded-2xl bg-blue-200 text-white">Register</Link>
             </>
           )}
 
@@ -128,7 +129,7 @@ const Navbar = () => {
                   </span>
                 </div>
                 <Link to="/">
-              <button onClick={logout} className="btn btn-sm bg-amber-500 text-white rounded-2xl">Logout
+              <button onClick={logout} className="btn btn-sm bg-blue-300 text-white rounded-2xl">Logout
       
               </button>
                </Link>

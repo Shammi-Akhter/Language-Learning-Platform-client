@@ -3,8 +3,11 @@ import { NavLink } from 'react-router';
 
 const Footer = () => {
   return (
-    <footer className="footer footer-horizontal footer-center  p-10"  style={{ backgroundColor: 'rgb(52, 40, 101)' }}>
-      <nav className="grid grid-flow-col gap-4">
+    <footer className="footer footer-horizontal footer-center lg:h-[200px] p-10" style={{
+    backgroundImage: 'linear-gradient(to right, #342865, #c8abee )',
+    color: 'white',
+  }}>
+      <nav className="grid md:grid-flow-col grid-flow-row gap-4">
         <NavLink to="/about-us" className="link link-hover !text-white ">  About us</NavLink> 
         <NavLink to="/contact" className="link link-hover !text-white ">  Contact</NavLink> 
         <NavLink to="https://preply.com/" target='_blank' className="link link-hover !text-white ">  Learn More About Languages</NavLink> 

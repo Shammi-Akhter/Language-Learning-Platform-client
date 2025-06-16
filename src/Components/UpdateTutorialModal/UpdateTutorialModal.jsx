@@ -44,73 +44,73 @@ const UpdateModal = ({ tutorial, onClose, onUpdate }) => {
 
   return (
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded-lg w-[90%] max-w-lg">
+      <div className="bg-indigo-300 p-6 rounded-lg w-[90%] max-w-lg">
         <h2 className="text-xl font-bold mb-4">Update Tutorial</h2>
         <form onSubmit={handleSubmit} className="space-y-3">
           <div>
-            <label>Name (read-only)</label>
+            <label  className="md:pr-2">Name (read-only)</label>
             <input
               type="text"
-              className="input"
+              className="input !bg-gray-300"
               value={tutorial.userName}
               disabled
             />
           </div>
           <div>
-            <label>Email (read-only)</label>
+            <label className="md:pr-2">Email (read-only)</label>
             <input
               type="text"
-              className="input"
+              className="input !bg-gray-300"
               value={tutorial.email}
               disabled
             />
           </div>
           <div>
-            <label>Image URL</label>
+            <label className="md:pr-2">Image URL</label>
             <input
               name="image"
               value={formData.image}
               onChange={handleChange}
-              className="input"
+              className="input bg-gray-300"
               required
             />
           </div>
           <div>
-            <label>Language</label>
+            <label className="md:pr-2">Language</label>
             <input
               name="language"
               value={formData.language}
               onChange={handleChange}
-              className="input"
+              className="input bg-gray-300"
               required
             />
           </div>
           <div>
-            <label>Price</label>
+            <label className="md:pr-2">Price</label>
             <input
               name="price"
               type="number"
               value={formData.price}
               onChange={handleChange}
-              className="input"
+              className="input bg-gray-300"
               required
             />
           </div>
           <div>
-            <label>Description</label>
+            <label className="md:pr-2">Description</label>
             <textarea
               name="description"
               value={formData.description}
               onChange={handleChange}
-              className="input"
+              className="input bg-gray-300"
               required
             ></textarea>
           </div>
           <div>
-            <label>Review (read-only)</label>
+            <label className="md:pr-2">Review (read-only)</label>
             <input
               type="text"
-              className="input bg-gray-100 cursor-not-allowed"
+              className="input !bg-gray-300 cursor-not-allowed"
               value={tutorial.review}
               disabled
             />
@@ -118,12 +118,12 @@ const UpdateModal = ({ tutorial, onClose, onUpdate }) => {
           <div className="flex justify-end space-x-2">
             <button
               type="button"
-              className="bg-gray-500 text-white px-4 py-1 rounded"
+              className="bg-gray-300 hover:bg-gray-500 text-white px-4 py-1 rounded cursor-pointer"
               onClick={onClose}
             >
               Cancel
             </button>
-            <button type="submit" className="bg-green-600 text-white px-4 py-1 rounded">
+            <button type="submit" className="bg-blue-300 text-white px-4 py-1 rounded cursor-pointer">
               Update
             </button>
           </div>
