@@ -18,7 +18,7 @@ const Navbar = () => {
         <div className="navbar-start">
           <Link to="/">
             <img
-              className="lg:w-[180px] w-[100px] h-[50px] md:p-2"
+              className="lg:w-[170px] w-[100px] h-[50px] md:p-2"
               src="https://i.postimg.cc/t4V4pcdf/logo-11-2nd-removebg-preview.png"
               alt="Logo"
             />

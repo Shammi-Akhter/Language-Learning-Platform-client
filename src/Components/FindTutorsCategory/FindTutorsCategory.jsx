@@ -25,13 +25,22 @@ const FindTutorsCategory = () => {
             <p className="text-sm mt-1">{tutor.details}</p>
             <p className="text-xs text-gray-500 mt-1">Email: {tutor.email}</p>
 
-<Link to={`/tutors/${tutor._id}`}>
-  <button className="mt-2 bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600">Details</button>
-</Link>
+            <Link to={`/tutors/${tutor._id}`}>
+              <button className="mt-2 bg-blue-400 text-white px-4 py-1 rounded hover:bg-blue-600 cursor-pointer">Details</button>
+            </Link>
 
           </div>
+
         ))}
       </div>
+      <div className="flex justify-center">
+  <Link to="/category">
+    <button className="mt-2 md:mt-10 bg-blue-400 text-black px-4 py-1 rounded hover:bg-blue-600 cursor-pointer">
+      Back to Categories
+    </button>
+  </Link>
+</div>
+
     </div>
   );
 };
