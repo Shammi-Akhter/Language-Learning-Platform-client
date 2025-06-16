@@ -25,6 +25,7 @@ import MyTutorials from './Components/MyTutorials/MyTutorials.jsx';
 import AboutUs from './Components/About Us/AboutUs.jsx';
 import PrivacyPolicy from './Components/PrivacyPolicy/PrivacyPolicy.jsx';
 import Contact from './Components/Contact/Contact.jsx';
+import ErrorPage from './Components/ErrorPage/ErrorPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
         element: <Home />
 
       },
-     {
+      {
         path: '/login',
         element:
           <Login />
@@ -53,7 +54,7 @@ const router = createBrowserRouter([
         path: '/find-tutors/:category',
         element: (
           <PrivateRoute>
-            <FindTutorsCategory/>
+            <FindTutorsCategory />
           </PrivateRoute>
         )
       },
@@ -61,7 +62,7 @@ const router = createBrowserRouter([
         path: '/my-booked-tutors',
         element: (
           <PrivateRoute>
-            <MyBookedTutor/>
+            <MyBookedTutor />
           </PrivateRoute>
         )
       },
@@ -69,7 +70,7 @@ const router = createBrowserRouter([
         path: '/add-tutorials',
         element: (
           <PrivateRoute>
-            <AddTutorial/>
+            <AddTutorial />
           </PrivateRoute>
         )
       },
@@ -77,7 +78,7 @@ const router = createBrowserRouter([
         path: '/tutors/:id',
         element: (
           <PrivateRoute>
-            <TutorDetails/>
+            <TutorDetails />
           </PrivateRoute>
         )
       },
@@ -85,35 +86,40 @@ const router = createBrowserRouter([
         path: '/my-tutorials',
         element: (
           <PrivateRoute>
-            <MyTutorials/>
+            <MyTutorials />
           </PrivateRoute>
         )
       },
       {
-        path:'/about-us',
-        element:<AboutUs/>
+        path: '/about-us',
+        element: <AboutUs />
       },
       {
         path: "/privacy-policy",
-        element:<PrivacyPolicy/>
+        element: <PrivacyPolicy />
       },
       {
         path: "/contact",
-        element:<Contact/>  
-          },
+        element: <Contact />
+      },
 
-    ]
+    ],
+    errorElement: <ErrorPage />
+  },
+  {
+    path: '*',
+    element: <ErrorPage />
   }
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-   <ThemeProvider>
-<HelmetProvider>
+    <ThemeProvider>
+      <HelmetProvider>
         <AuthProvider>
           <RouterProvider router={router}></RouterProvider>
           <Toaster />
         </AuthProvider>
-     </HelmetProvider>
+      </HelmetProvider>
     </ThemeProvider>
   </StrictMode>,
 )

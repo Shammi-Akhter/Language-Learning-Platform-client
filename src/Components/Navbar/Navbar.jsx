@@ -13,12 +13,12 @@ const Navbar = () => {
 
   return (
     <div className="[ style={{ backgroundColor: 'rgb(225 230 237);' }} text-black nav border-b-2 border-white">
-      <div className="container  mx-auto navbar lg:flex">
+      <div className="container  mx-auto navbar lg:flex ">
       
         <div className="navbar-start">
           <Link to="/">
             <img
-              className="lg:w-[220px] w-[150px] "
+              className="lg:w-[180px] w-[100px] h-[50px] md:p-2"
               src="https://i.postimg.cc/t4V4pcdf/logo-11-2nd-removebg-preview.png"
               alt="Logo"
             />

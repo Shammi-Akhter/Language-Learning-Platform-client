@@ -93,7 +93,7 @@ const MyBookedTutor = () => {
 };
   return (
     <div className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">My Booked Tutors</h1>
+      <h1 className="text-2xl font-bold mb-4 md:mb-10 text-center">My Booked Tutors</h1>
       {bookings.length === 0 ? (
         <p>No tutors booked yet.</p>
       ) : (

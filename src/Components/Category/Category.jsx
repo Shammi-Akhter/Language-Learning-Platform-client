@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { IoIosArrowDropright } from 'react-icons/io';
 import { useNavigate } from 'react-router';
 
 const Category = () => {
@@ -38,18 +39,25 @@ const Category = () => {
   if (error) return <div>Error loading categories: {error}</div>;
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 md:mt-15">
-        <h1 className="col-span-2 md:col-span-4 text-2xl font-bold mb-4 text-center">Explore Languages</h1>
+    <div className='container mx-auto md:mb-15'>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 md:mt-15 ">
+        <h1 className="col-span-2 md:col-span-4 text-4xl font-bold md:mb-10 text-center  !text-indigo-700">Explore Languages</h1>
       {categories.map((lang, i) => (
         <div
           key={i}
           onClick={() => handleClick(lang)}
-          className="cursor-pointer shadow p-4 rounded-lg bg-white hover:bg-blue-50 transition"
+          className="cursor-pointer shadow p-4 rounded-lg bg-gradient-to-r from-blue-200 via-purple-200 to-pink-100 hover:bg-blue-50 transition flex flex-col justify-center"
         >
-          <img src={`https://img.icons8.com/ios-filled/100/language.png`} alt={lang} className="w-12 h-12" />
-          <h2 className="text-lg font-semibold mt-2">{lang}</h2>
+          <img src={`https://img.icons8.com/ios-filled/100/language.png`} alt={lang} className="w-12 h-12 mx-auto" /> 
+          <div className='flex items-center justify-between mt-4'>
+            <h2 className="text-xl font-semibold mt-2">{lang}</h2>
+          <IoIosArrowDropright className='md:w-[30px] md:h-[30px]' />
+            
+          </div>
+          
         </div>
       ))}
+    </div>
     </div>
   );
 };

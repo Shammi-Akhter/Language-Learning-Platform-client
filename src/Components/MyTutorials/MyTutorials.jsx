@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 
-// import { useAuth } from "../../context/AuthContext";
+
 import UpdateModal from "../UpdateTutorialModal/UpdateTutorialModal";
 
 const MyTutorials = () => {
-  // const { user} = useAuth();
+ 
   const [tutorials, setTutorials] = useState([]);
   const [selected, setSelected] = useState(null);
  const token = localStorage.getItem('access-token');
@@ -49,10 +49,10 @@ setTutorials(safeData);
   }, [token]);
 
   return (
-    <div className="p-5 max-w-6xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">My Tutorials</h1>
+    <div className="p-5 max-w-6xl mx-auto md:h-[370px]">
+      <h1 className="text-2xl font-bold mb-4 text-center">My Tutorials</h1>
       {tutorials.length === 0 ? (
-        <p>No tutorials found.</p>
+        <p className="text-center">No tutorials found.</p>
       ) : (
         <div className="overflow-x-auto">
           <table className="min-w-full border">
