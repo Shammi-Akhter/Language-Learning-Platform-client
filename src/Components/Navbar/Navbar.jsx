@@ -19,7 +19,7 @@ const Navbar = () => {
           <Link to="/">
             <img
               className="lg:w-[220px] w-[150px] "
-              src="https://i.postimg.cc/d3q9nF5R/logo-11-2nd.png"
+              src="https://i.postimg.cc/t4V4pcdf/logo-11-2nd-removebg-preview.png"
               alt="Logo"
             />
           </Link>

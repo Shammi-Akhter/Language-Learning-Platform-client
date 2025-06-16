@@ -38,7 +38,7 @@ const Category = () => {
   if (error) return <div>Error loading categories: {error}</div>;
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 md:mt-15">
         <h1 className="col-span-2 md:col-span-4 text-2xl font-bold mb-4 text-center">Explore Languages</h1>
       {categories.map((lang, i) => (
         <div
