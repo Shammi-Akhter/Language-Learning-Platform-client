@@ -37,7 +37,7 @@ const UpdateModal = ({ tutorial, onClose, onUpdate }) => {
       } else {
         toast.error(data.message || "Update failed");
       }
-    } catch (err) {
+    } catch (error) {
       toast.error("Something went wrong");
     }
   };

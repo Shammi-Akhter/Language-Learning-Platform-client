@@ -22,6 +22,9 @@ import TutorDetails from './Components/TutorDetailsPage/TutorDetailsPage.jsx';
 import MyBookedTutor from './Components/MyBookedTutor/MyBookedTutor.jsx';
 import AddTutorial from './Components/AddTutorial/AddTutorial.jsx';
 import MyTutorials from './Components/MyTutorials/MyTutorials.jsx';
+import AboutUs from './Components/About Us/AboutUs.jsx';
+import PrivacyPolicy from './Components/PrivacyPolicy/PrivacyPolicy.jsx';
+import Contact from './Components/Contact/Contact.jsx';
 
 const router = createBrowserRouter([
   {
@@ -86,6 +89,18 @@ const router = createBrowserRouter([
           </PrivateRoute>
         )
       },
+      {
+        path:'/about-us',
+        element:<AboutUs/>
+      },
+      {
+        path: "/privacy-policy",
+        element:<PrivacyPolicy/>
+      },
+      {
+        path: "/contact",
+        element:<Contact/>  
+          },
 
     ]
   }

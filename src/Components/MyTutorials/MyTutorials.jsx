@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 
-import { useAuth } from "../../context/AuthContext";
+// import { useAuth } from "../../context/AuthContext";
 import UpdateModal from "../UpdateTutorialModal/UpdateTutorialModal";
 
 const MyTutorials = () => {
-  const { user} = useAuth();
+  // const { user} = useAuth();
   const [tutorials, setTutorials] = useState([]);
   const [selected, setSelected] = useState(null);
  const token = localStorage.getItem('access-token');
@@ -17,8 +17,9 @@ const MyTutorials = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-      const data = await res.json();
-      setTutorials(data);
+     const data = await res.json();
+const safeData = Array.isArray(data) ? data : [data];
+setTutorials(safeData);
     } catch (error) {
       toast.error("Failed to load tutorials");
     }
@@ -38,7 +39,7 @@ const MyTutorials = () => {
       const data = await res.json();
       toast.success(data.message || "Deleted");
       fetchTutorials();
-    } catch (err) {
+    } catch (error) {
       toast.error("Delete failed");
     }
   };

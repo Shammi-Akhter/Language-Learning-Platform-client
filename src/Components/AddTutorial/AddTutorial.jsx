@@ -18,13 +18,13 @@ const AddTutorial = () => {
     const handleSubmit = async e => {
         e.preventDefault();
         
-        // Check if user is authenticated
+       
         if (!user || !user.email) {
             toast.error('Please log in to add a tutorial');
             return;
         }
 
-        // Check if token exists
+       
         const token = localStorage.getItem('access-token');
         if (!token) {
             toast.error('Authentication token not found. Please log in again.');
@@ -47,7 +47,7 @@ const AddTutorial = () => {
                 body: JSON.stringify(tutorial),
             });
 
-            // Handle different response types
+            
             const contentType = res.headers.get("content-type");
             let data;
             
@@ -58,16 +58,15 @@ const AddTutorial = () => {
                 throw new Error(`Server returned non-JSON response: ${text.substring(0, 100)}...`);
             }
 
-            // Handle specific error cases
             if (res.status === 401) {
                 toast.error('Authentication failed. Please log in again.');
-                localStorage.removeItem('access-token'); // Clear invalid token
+                localStorage.removeItem('access-token'); 
                 return;
             }
             
             if (res.status === 403) {
                 toast.error('Token expired or invalid. Please log in again.');
-                localStorage.removeItem('access-token'); // Clear invalid token
+                localStorage.removeItem('access-token'); 
                 return;
             }
 
@@ -86,7 +85,7 @@ const AddTutorial = () => {
 
     return (
         <form onSubmit={handleSubmit} className="max-w-md mx-auto p-4">
-            <h2 className="text-xl font-semibold mb-4">Add Tutorial</h2>
+            <h2 className="text-xl font-semibold mb-4 text-center">Add Tutorial</h2>
 
             <div className="mb-2">
                 <label>User Name</label>
@@ -161,7 +160,7 @@ const AddTutorial = () => {
                 />
             </div>
 
-            <button type="submit" className="btn btn-primary w-full mt-4">
+            <button type="submit" className="btn btn-primary w-full mt-4 !text-white">
                 Submit Tutorial
             </button>
         </form>

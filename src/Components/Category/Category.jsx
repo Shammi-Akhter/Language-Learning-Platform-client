@@ -39,6 +39,7 @@ const Category = () => {
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
+        <h1 className="col-span-2 md:col-span-4 text-2xl font-bold mb-4 text-center">Explore Languages</h1>
       {categories.map((lang, i) => (
         <div
           key={i}

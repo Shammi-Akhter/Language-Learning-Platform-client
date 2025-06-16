@@ -12,9 +12,9 @@ const FindTutorsCategory = () => {
   }, [category]);
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Tutors for: {category}</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="container mx-auto p-6">
+      <h1 className="text-2xl font-bold mb-4 text-center">Tutors for: {category}</h1>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
         {tutors.map((tutor, idx) => (
           <div key={idx} className="p-4 border rounded-lg shadow">
             <img src={tutor.image} alt={tutor.name} className="w-full h-40 object-cover rounded" />

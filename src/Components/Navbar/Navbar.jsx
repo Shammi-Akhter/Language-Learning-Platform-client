@@ -12,14 +12,14 @@ const Navbar = () => {
   const defaultAvatar = 'https://i.ibb.co/ZYW3VTp/brown-brim.png'; 
 
   return (
-    <div className="bg-white text-black nav border-b-2 border-white">
+    <div className="[ style={{ backgroundColor: 'rgb(225 230 237);' }} text-black nav border-b-2 border-white">
       <div className="container  mx-auto navbar lg:flex">
       
         <div className="navbar-start">
           <Link to="/">
             <img
               className="lg:w-[220px] w-[150px] "
-              src="/images/logo.png"
+              src="https://i.postimg.cc/d3q9nF5R/logo-11-2nd.png"
               alt="Logo"
             />
           </Link>

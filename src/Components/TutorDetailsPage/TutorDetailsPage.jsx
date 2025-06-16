@@ -20,7 +20,7 @@ const TutorDetails = () => {
       .then(data => setTutor(data));
   }, [id]);
 
-  // Check if this user already booked this tutor
+  
   useEffect(() => {
     if (user?.email) {
       fetch(`http://localhost:5000/bookings?tutorId=${id}&email=${user.email}`)
@@ -63,7 +63,7 @@ const TutorDetails = () => {
       .then(data => {
         if (data.insertedId) {
           toast.success('Booking successful!');
-          setIsBooked(true); // Mark as booked
+          setIsBooked(true); 
         } else if (data.message === 'Already booked') {
           toast.error('Already booked');
           setIsBooked(true);
