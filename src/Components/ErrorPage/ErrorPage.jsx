@@ -8,12 +8,12 @@ const ErrorPage = () => {
     return (
         <div >
             <Helmet>
-                <title>Error Page | HobbyHive</title>
+                <title>Error Page | Secjaf</title>
             </Helmet>
-            <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 text-center p-4">
-      <h1 className="text-6xl font-bold text-red-500 mb-4">404</h1>
+            <div className="min-h-screen flex flex-col items-center justify-center  text-center p-4">
+      <h1 className="text-6xl font-bold  mb-4">404</h1>
       <h2 className="text-2xl font-semibold mb-2">No Tutor is Found</h2>
-      <p className="text-gray-600 mb-6">
+      <p className=" mb-6">
         Please select <span className="font-semibold">"Home"</span> to see wanted instructor.
       </p>
       <Link to="/">

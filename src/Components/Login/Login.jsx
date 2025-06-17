@@ -71,7 +71,7 @@ const Login = () => {
   return (
     <>
       <Helmet>
-        <title>Login | HobbyHive</title>
+        <title>Login | Secjaf</title>
       </Helmet>
       <div className="flex justify-center items-center lg:min-h-screen md:h-[50vh] lg:my-0 lg:mx-0 my-8 mx-4 ">
         <div className="w-full max-w-md border-2 border-white rounded-2xl shadow-lg p-8">

@@ -75,7 +75,7 @@ const Register = () => {
   return (
     <>
       <Helmet>
-        <title>Register | HobbyHive</title>
+        <title>Register | Secjaf</title>
       </Helmet>
       
       <div className="flex justify-center items-center lg:mt-20 lg:mb-28  md:mb-20 md:mt-10 lg:mx-0 my-8 mx-4 ">
