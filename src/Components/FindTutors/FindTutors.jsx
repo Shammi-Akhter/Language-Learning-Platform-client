@@ -48,11 +48,11 @@ const FindTutor = () => {
                                 alt={tutor.name}
                                 className="w-full h-60 object-cover rounded-xl mb-4"
                             />
-                            <h3 className="text-xl font-semibold text-indigo-600">{tutor.userName}</h3>
-                            <h3 className="text-sm text-gray-700">{tutor.email}</h3>
+                            <h3 className="text-xl font-semibold text-indigo-600">Name: {tutor.userName}</h3>
+                            <h3 className=" text-gray-700"><span className="font-semibold">Email:</span>  {tutor.email}</h3>
                             <p className="text-gray-700"><span className="font-semibold">Language:</span> {tutor.language}</p>
                             <p className="text-gray-700"><span className="font-semibold">Review:</span> {tutor.review }</p>
-                            <p className="text-gray-600 mt-2">{tutor.description?.slice(0, 100)}...</p>
+                            <p className="text-gray-600 mt-2"><span className="font-semibold">Description: </span>{tutor.description?.slice(0, 100)}...</p>
                             <Link to={`/tutorial-details/${tutor._id}`}>
                                 <button className="mt-2 bg-blue-400 text-white px-4 py-1 rounded hover:bg-blue-600 cursor-pointer">Details</button>
                             </Link>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FaStar } from "react-icons/fa";
 
 const StatsSection = () => {
   const [userCount, setUserCount] = useState(null);
@@ -71,8 +72,15 @@ const StatsSection = () => {
           <p className="md:text-lg font-medium text-gray-700 mt-2">Tutors</p>
         </div>
         <div className="stat-card shadow-lg rounded-2xl md:p-6 text-center hover:shadow-indigo-200 transition">
-          <p className="md:text-4xl text-xl font-bold text-indigo-600">{reviewsCount}</p>
-          <p className="md:text-lg font-medium text-gray-700 mt-2">Highly Rated Tutors (4 * +)</p>
+          <p className="md:text-4xl text-xl font-bold text-indigo-600">{reviewsCount} <span className="text-xs">Tutors</span></p>
+          <div className="flex items-center justify-center gap-2 mt-2">
+            <p className="md:text-lg font-medium text-gray-700 ">Rating </p>
+            <FaStar className="text-yellow-500 md:text-lg"  />
+            <FaStar className="text-yellow-500 md:text-lg"  />
+            <FaStar className="text-yellow-500 md:text-lg"  />
+            <FaStar className="text-yellow-500 md:text-lg"  />
+            <p className="md:text-lg">+</p>
+          </div>
         </div>
       </div>
     </section>

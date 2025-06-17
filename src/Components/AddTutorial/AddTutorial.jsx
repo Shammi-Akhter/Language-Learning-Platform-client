@@ -84,7 +84,7 @@ const AddTutorial = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto p-4">
+        <form onSubmit={handleSubmit} className="max-w-md mx-auto md:my-5 border-2 border-white p-4 rounded-2xl shadow-lg">
             <h2 className="text-xl font-semibold mb-4 text-center">Add Tutorial</h2>
 
             <div className="mb-2">
@@ -93,7 +93,7 @@ const AddTutorial = () => {
                     type="text" 
                     value={user?.displayName || user?.email || ''} 
                     disabled 
-                    className="input input-bordered w-full" 
+                    className="input bg-gray-300 input-bordered w-full" 
                 />
             </div>
 
@@ -103,7 +103,7 @@ const AddTutorial = () => {
                     type="email" 
                     value={user?.email || ''} 
                     disabled 
-                    className="input input-bordered w-full" 
+                    className="input bg-gray-300 input-bordered w-full" 
                 />
             </div>
 
@@ -115,7 +115,7 @@ const AddTutorial = () => {
                     value={formData.image}
                     onChange={handleChange}
                     required
-                    className="input input-bordered w-full"
+                    className="input bg-gray-300 input-bordered w-full"
                     placeholder="Tutorial image URL"
                 />
             </div>
@@ -128,7 +128,7 @@ const AddTutorial = () => {
                     value={formData.language}
                     onChange={handleChange}
                     required
-                    className="input input-bordered w-full"
+                    className="input bg-gray-300 input-bordered w-full"
                     placeholder="Language"
                 />
             </div>
@@ -143,7 +143,7 @@ const AddTutorial = () => {
                     required
                     min="0"
                     step="0.01"
-                    className="input input-bordered w-full"
+                    className="input bg-gray-300 input-bordered w-full"
                     placeholder="Price"
                 />
             </div>
@@ -155,10 +155,11 @@ const AddTutorial = () => {
                     value={formData.description}
                     onChange={handleChange}
                     required
-                    className="textarea textarea-bordered w-full"
+                    className="textarea bg-gray-300 textarea-bordered w-full"
                     placeholder="Description"
                 />
             </div>
+           
 
             <button type="submit" className="btn btn-primary w-full mt-4 !text-white">
                 Submit Tutorial

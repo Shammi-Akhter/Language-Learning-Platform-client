@@ -94,7 +94,7 @@ const MyBookedTutor = () => {
     <div className="p-6 max-w-4xl mx-auto">
       <h1 className="text-2xl font-bold mb-4 md:mb-10 text-center">My Booked Tutors</h1>
       {bookings.length === 0 ? (
-        <p>No tutors booked yet.</p>
+        <p className='text-center'>No tutors booked yet.</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {bookings.map((booking) => (
