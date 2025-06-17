@@ -53,30 +53,9 @@ input,label,button,p,span,h1,h2,a{
     background-color: var(--bg-navbar);
 }
 
-.popular-h{
-    background-color: var(--bg-primary);
-}
-.popular-h-card{
-    background-color: var(--bg-section);
-}
-.feature-g{
-    background-color: var(--bg-primary);
-}
-.feature-g-card{
-    background-color: var(--bg-section);
-}
 
-.testimonial-card{
+.stat-card{
   background-color: var(--bg-section);
-}
-.all-group-card{
-  background-color: var(--bg-section);
-}
-.group-details-card{
-  background-color: var(--bg-section);
-}
-.create-page-op{
-  background-color: var(--bg-primary);
 }
 
 .footer{

@@ -1,27 +1,33 @@
-
-import { useParams } from 'react-router';
+import { useParams, useNavigate } from 'react-router'; // updated import
 import { toast } from 'react-hot-toast';
 import { useAuth } from '../../context/AuthContext';
 import { useEffect, useState } from 'react';
 
 const TutorialDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate(); // 👈
   const [tutorial, setTutorial] = useState(null);
   const [isBooked, setIsBooked] = useState(false);
   const { user } = useAuth();
 
-  
   useEffect(() => {
     fetch(`https://secjaf-server-side.vercel.app/tutorials/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     })
-      .then(res => res.json())
-      .then(data => setTutorial(data));
-  }, [id]);
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Tutorial not found');
+        }
+        return res.json();
+      })
+      .then(data => setTutorial(data))
+      .catch(() => {
+        navigate('/error'); // 👈 navigate to error page
+      });
+  }, [id, navigate]);
 
-  
   useEffect(() => {
     if (user?.email) {
       fetch(`https://secjaf-server-side.vercel.app/bookings?tutorialId=${id}&email=${user.email}`)
@@ -77,7 +83,8 @@ const TutorialDetails = () => {
 
   return (
     <div className="p-6 max-w-2xl mx-auto">
-      <img
+     <div className='border-2 border-white p-4 rounded-2xl shadow-lg'>
+         <img
         src={tutorial.image}
         alt={tutorial.language}
         className="w-full h-64 object-cover rounded"
@@ -98,6 +105,7 @@ const TutorialDetails = () => {
       >
         {isBooked ? 'Booked' : 'Book'}
       </button>
+     </div>
     </div>
   );
 };

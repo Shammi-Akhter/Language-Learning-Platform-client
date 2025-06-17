@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { toast } from 'react-hot-toast';
 import { useAuth } from '../../context/AuthContext';
 
@@ -8,7 +8,7 @@ const TutorDetails = () => {
   const [tutor, setTutor] = useState(null);
   const [isBooked, setIsBooked] = useState(false);
   const { user } = useAuth();
-
+ const navigate = useNavigate(); // 👈
   
   useEffect(() => {
     fetch(`https://secjaf-server-side.vercel.app/tutors/${id}`,{
@@ -16,10 +16,17 @@ const TutorDetails = () => {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
     })
-      .then(res => res.json())
-      .then(data => setTutor(data));
-  }, [id]);
-
+       .then(res => {
+        if (!res.ok) {
+          throw new Error('Tutorial not found');
+        }
+        return res.json();
+      })
+      .then(data => setTutor(data))
+      .catch(() => {
+        navigate('/error'); // 👈 navigate to error page
+      });
+  }, [id, navigate]);
   
   useEffect(() => {
     if (user?.email) {

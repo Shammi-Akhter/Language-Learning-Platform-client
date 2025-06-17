@@ -54,7 +54,7 @@ const MyTutorials = () => {
       ) : (
         <div className="overflow-x-auto">
           <table className="min-w-full border border-gray-300 divide-y divide-gray-200 text-sm md:text-base">
-            <thead className="bg-gray-100">
+            <thead className="stat-card">
               <tr>
                 <th className="p-3 text-left">Image</th>
                 <th className="p-3 text-left">Language</th>
@@ -66,7 +66,7 @@ const MyTutorials = () => {
             </thead>
             <tbody>
               {tutorials.map((item) => (
-                <tr key={item._id} className="border-t hover:bg-gray-50">
+                <tr key={item._id} className="border-t ">
                   <td className="p-3">
                     <img
                       src={item.image}

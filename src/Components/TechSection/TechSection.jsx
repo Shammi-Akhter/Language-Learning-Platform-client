@@ -12,7 +12,7 @@ const TeachSection = () => {
         <p className="text-gray-600 mb-6">
           Secjaf tutors teach thousands — and you can too! Everything you need to succeed is at your fingertips.
         </p>
-        <ul className="space-y-2 text-gray-600 list-disc list-inside text-left inline-block">
+        <ul className="space-y-2  list-disc list-inside text-left inline-block">
           <li>Steady stream of new students</li>
           <li>Smart calendar</li>
           <li>Interactive classroom</li>

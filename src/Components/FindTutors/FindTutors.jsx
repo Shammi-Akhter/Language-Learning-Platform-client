@@ -42,7 +42,7 @@ const FindTutor = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredTutors.length > 0 ? (
                     filteredTutors.map(tutor => (
-                        <div key={tutor._id} className="bg-white rounded-2xl shadow-lg p-5">
+                        <div key={tutor._id} className="stat-card rounded-2xl shadow-lg p-5">
                             <img
                                 src={tutor.image}
                                 alt={tutor.name}
@@ -53,7 +53,7 @@ const FindTutor = () => {
                             <p className="text-gray-700"><span className="font-semibold">Language:</span> {tutor.language}</p>
                             <p className="text-gray-700"><span className="font-semibold">Review:</span> {tutor.review }</p>
                             <p className="text-gray-600 mt-2">{tutor.description?.slice(0, 100)}...</p>
-                            <Link to={`/tutorials/${tutor._id}`}>
+                            <Link to={`/tutorial-details/${tutor._id}`}>
                                 <button className="mt-2 bg-blue-400 text-white px-4 py-1 rounded hover:bg-blue-600 cursor-pointer">Details</button>
                             </Link>
                         </div>
