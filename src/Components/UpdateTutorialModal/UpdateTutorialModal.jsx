@@ -20,7 +20,7 @@ const UpdateModal = ({ tutorial, onClose, onUpdate }) => {
     e.preventDefault();
     const token = localStorage.getItem("access-token");
     try {
-      const res = await fetch(`http://localhost:5000/tutorials/${tutorial._id}`, {
+      const res = await fetch(`https://secjaf-server-side.vercel.app/tutorials/${tutorial._id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

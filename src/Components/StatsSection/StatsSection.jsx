@@ -1,66 +1,70 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const StatsSection = () => {
-  const [stats, setStats] = useState({
-    tutors: 0,
-    reviews: 0,
-    languages: 0,
-    users: 0,
-  });
+  const [userCount, setUserCount] = useState(null);
+  const [languageCount, setLanguageCount] = useState(null);
+  const [tutorCount, setTutorCount] = useState(null);
+  const [reviewsCount, setReviewsCount] = useState(null);
+  const [error, setError] = useState(null);
 
+  // Firebase User Count
   useEffect(() => {
-    const fetchStats = async () => {
-      try {
-        const [tutorsRes, reviewsRes, languagesRes, usersRes] = await Promise.all([
-          fetch("http://localhost:5000/tutors"),
-          fetch("http://localhost:5000/reviews"),
-          fetch("http://localhost:5000/languages"),
-          fetch("http://localhost:5000/users"),
-        ]);
-
-        const [tutors, reviews, languages, users] = await Promise.all([
-          tutorsRes.json(),
-          reviewsRes.json(),
-          languagesRes.json(),
-          usersRes.json(),
-        ]);
-
-        setStats({
-          tutors: tutors.length,
-          reviews: reviews.length,
-          languages: languages.length,
-          users: users.length,
-        });
-      } catch (error) {
-        console.error("Failed to load stats:", error);
-      }
-    };
-
-    fetchStats();
+    fetch('https://secjaf-server-side.vercel.app/firebase-user-count')
+      .then((res) => {
+        if (!res.ok) throw new Error('Network response was not ok');
+        return res.json();
+      })
+      .then((data) => setUserCount(data.userCount))
+      .catch((err) => setError(err.message));
   }, []);
 
+  // Tutors data
+  useEffect(() => {
+    fetch('https://secjaf-server-side.vercel.app/tutors')
+      .then((res) => {
+        if (!res.ok) throw new Error('Network response was not ok');
+        return res.json();
+      })
+      .then((tutors) => {
+        setTutorCount(tutors.length);
+
+        // Unique languages
+        const uniqueLanguages = new Set(tutors.map(tutor => tutor.language));
+        setLanguageCount(uniqueLanguages.size);
+
+        // Total number of reviews
+        const totalReviews = tutors.reduce((acc, tutor) => {
+          return acc + (tutor.reviews?.length || 0);
+        }, 0);
+        setReviewsCount(totalReviews);
+      })
+      .catch((err) => setError(err.message));
+  }, []);
+
+  if (error) return <div>Error: {error}</div>;
+  if (userCount === null || tutorCount === null || languageCount === null || reviewsCount === null)
+    return <div>Loading statistics...</div>;
+
   return (
-    <section className="max-w-7xl md:mx-auto mx-2 px-4 sm:px-6 lg:px-8 py-8 bg-gradient-to-r from-red-100 via-purple-200 to-gray-400 rounded-xl shadow-md md:my-20 my-10">
-      <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-6 text-indigo-700">
-        Platform Statistics
-      </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-        {[
-          { label: "Tutors", value: stats.tutors, color: "text-blue-600" },
-          { label: "Reviews", value: stats.reviews, color: "text-green-600" },
-          { label: "Languages", value: stats.languages, color: "text-purple-600" },
-          { label: "Users", value: stats.users, color: "text-pink-600" },
-        ].map(({ label, value, color }) => (
-          <div
-            key={label}
-            className="bg-white p-3 sm:p-4 rounded-lg shadow hover:shadow-lg transition-shadow duration-300 min-h-[100px] flex flex-col justify-center items-center"
-          >
-            <h3 className="text-sm sm:text-base font-semibold text-gray-700 mb-1">{label}</h3>
-            <p className={`text-2xl sm:text-3xl md:text-4xl font-bold ${color}`}>
-              {value}
-            </p>
-          </div>
-        ))}
+    <section className="container md:mx-auto md:my-10 my-5 md:px-4 px-2 md:py-10  py-5 ">
+      <h2 className="md:text-3xl text-xl font-bold text-center mb-8 text-indigo-700">Platform Statistics</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:px-0 px-10 md:py-0 py-5" >
+        <div className="bg-white shadow-lg rounded-2xl md:p-6 text-center hover:shadow-indigo-200 transition">
+          <p className="md:text-4xl text-xl font-bold text-indigo-600">{userCount ?? '...'}</p>
+          <p className="md:text-lg  font-medium text-gray-700 mt-2">Users</p>
+        </div>
+        <div className="bg-white shadow-lg rounded-2xl md:p-6 text-center hover:shadow-indigo-200 transition">
+          <p className="md:text-4xl text-xl font-bold text-indigo-600">{languageCount ?? '...'}</p>
+          <p className="md:text-lg font-medium text-gray-700 mt-2">Languages</p>
+        </div>
+        <div className="bg-white shadow-lg rounded-2xl md:p-6 text-center hover:shadow-indigo-200 transition">
+          <p className="md:text-4xl text-xl font-bold text-indigo-600">{tutorCount ?? '...'}</p>
+          <p className="md:text-lg font-medium text-gray-700 mt-2">Tutors</p>
+        </div>
+        <div className="bg-white shadow-lg rounded-2xl md:p-6 text-center hover:shadow-indigo-200 transition">
+          <p className="md:text-4xl text-xl font-bold text-indigo-600">{reviewsCount ?? '...'}</p>
+          <p className="md:text-lg font-medium text-gray-700 mt-2">Reviews</p>
+        </div>
       </div>
     </section>
   );

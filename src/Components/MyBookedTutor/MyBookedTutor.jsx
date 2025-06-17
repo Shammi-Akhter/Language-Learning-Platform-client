@@ -14,7 +14,7 @@ const MyBookedTutor = () => {
 
     const fetchBookings = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/bookings?email=${user.email}`, {
+        const res = await fetch(`https://secjaf-server-side.vercel.app/bookings?email=${user.email}`, {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${token}`
@@ -41,8 +41,7 @@ const MyBookedTutor = () => {
   try {
     const token = localStorage.getItem('access-token');
     
-    // 1. Update tutor review count
-    const resTutor = await fetch(`http://localhost:5000/tutors/${tutorId}/review`, {
+    const resTutor = await fetch(`https://secjaf-server-side.vercel.app/tutors/${tutorId}/review`, {
       method: 'PATCH',
       headers: { 
         'Content-Type': 'application/json',
@@ -56,8 +55,8 @@ const MyBookedTutor = () => {
       throw new Error(errorData.error || 'Failed to submit review');
     }
 
-    // 2. Update booking reviewed status
-    const resBooking = await fetch(`http://localhost:5000/bookings/${bookingId}/reviewed`, {
+    
+    const resBooking = await fetch(`https://secjaf-server-side.vercel.app/bookings/${bookingId}/reviewed`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -70,7 +69,7 @@ const MyBookedTutor = () => {
       throw new Error(errorData.message || 'Failed to update booking review status');
     }
 
-    // 3. Update local state with the new review count
+    
     setBookings(prev =>
       prev.map(b => 
         b._id === bookingId

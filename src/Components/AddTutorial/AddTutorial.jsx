@@ -38,7 +38,7 @@ const AddTutorial = () => {
         };
 
         try {
-            const res = await fetch("http://localhost:5000/tutorials", {
+            const res = await fetch("https://secjaf-server-side.vercel.app/tutorials", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

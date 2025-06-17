@@ -26,6 +26,8 @@ import AboutUs from './Components/About Us/AboutUs.jsx';
 import PrivacyPolicy from './Components/PrivacyPolicy/PrivacyPolicy.jsx';
 import Contact from './Components/Contact/Contact.jsx';
 import ErrorPage from './Components/ErrorPage/ErrorPage.jsx';
+import FindTutors from './Components/FindTutors/FindTutors.jsx';
+import TutorialDetails from './Components/TutorialsDetails/TutorialsDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -51,7 +53,7 @@ const router = createBrowserRouter([
         element: <Category />
       },
       {
-        path: '/find-tutors/:category',
+        path: '/tutors-category/:category',
         element: (
           <PrivateRoute>
             <FindTutorsCategory />
@@ -83,6 +85,12 @@ const router = createBrowserRouter([
         )
       },
       {
+        path: '/tutorials/:id',
+        element: (
+          <TutorialDetails/>
+        )
+      },
+      {
         path: '/my-tutorials',
         element: (
           <PrivateRoute>
@@ -101,6 +109,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />
+      },
+      {
+        path: "/find-tutors",
+        element: <FindTutors/>
       },
       
 

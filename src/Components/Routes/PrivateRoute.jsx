@@ -6,7 +6,7 @@ const PrivateRoute = ({ children }) => {
   const { user, loading } = useAuth();
   const location = useLocation();
   const token = localStorage.getItem("access-token");
-
+console.log(user, loading, token);
   if (loading) return <div>Loading...</div>;
 
   if (user && token) return children;

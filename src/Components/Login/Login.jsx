@@ -14,15 +14,15 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  // Helper to get JWT from backend and save to localStorage
+  
   const saveJWT = async (email, displayName = null) => {
     try {
-      const response = await fetch("http://localhost:5000/jwt", {
+      const response = await fetch("https://secjaf-server-side.vercel.app/jwt", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
           email,
-          displayName: displayName || email // Use displayName or fallback to email
+          displayName: displayName || email 
         }),
       });
 
@@ -31,8 +31,8 @@ const Login = () => {
       }
 
       const data = await response.json();
-      localStorage.setItem("access-token", data.token); // Keep using "access-token"
-      console.log("JWT token saved successfully"); // Debug log
+      localStorage.setItem("access-token", data.token); 
+      console.log("JWT token saved successfully"); 
     } catch (error) {
       toast.error("Failed to get access token.");
       console.error("JWT Error:", error);
@@ -43,7 +43,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const result = await loginWithEmail(email, password);
-      // Get displayName from result if available, fallback to email
+ 
       const displayName = result?.user?.displayName || result?.displayName || email;
       await saveJWT(email, displayName);
       toast.success("Login successful!");
@@ -56,7 +56,7 @@ const Login = () => {
   const handleGoogleLogin = async () => {
     try {
       const result = await loginWithGoogle();
-      // Get both email and displayName from Google login result
+      
       const userEmail = result.user.email;
       const displayName = result.user.displayName || result.user.email;
       

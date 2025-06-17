@@ -6,7 +6,7 @@ const FindTutorsCategory = () => {
   const [tutors, setTutors] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/find-tutors/${category}`)
+    fetch(`https://secjaf-server-side.vercel.app/find-tutors/${category}`)
       .then(res => res.json())
       .then(data => setTutors(data));
   }, [category]);

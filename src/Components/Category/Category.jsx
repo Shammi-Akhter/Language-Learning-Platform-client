@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 const Category = () => {
   const [categories, setCategories] = useState([]);
   const [filteredCategories, setFilteredCategories] = useState([]);
-  const [searchText, setSearchText] = useState("");
+  const [searchText] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ const Category = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("http://localhost:5000/categories");
+        const response = await fetch("https://secjaf-server-side.vercel.app/categories");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -22,7 +22,7 @@ const Category = () => {
           throw new Error("Received data is not an array");
         }
         setCategories(data);
-        setFilteredCategories(data); // initialize filtered categories
+        setFilteredCategories(data); 
       } catch (err) {
         console.error("Fetch error:", err);
         setError(err.message);
@@ -43,26 +43,18 @@ const Category = () => {
   }, [searchText, categories]);
 
   const handleClick = (language) => {
-    navigate(`/find-tutors/${language}`);
+    navigate(`/tutors-category/${language}`);
   };
 
   if (loading) return <div>Loading categories...</div>;
   if (error) return <div>Error loading categories: {error}</div>;
 
   return (
-    <div className='container mx-auto md:mt-10 mt-5 md:mb-15 md:p-5'>
+    <div className='container mx-auto md:mt-10 md:mb-15 md:p-5'>
       <h1 className="md:text-4xl text-xl font-bold text-center text-indigo-700 mb-6">Choose a Language to Learn</h1>
 
 
-      <div className="mb-6 flex justify-center px-4">
-        <input
-          type="text"
-          placeholder="Search language..."
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-          className="w-full max-w-md p-2 sm:p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 transition duration-200"
-        />
-      </div>
+      
 
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-2">
