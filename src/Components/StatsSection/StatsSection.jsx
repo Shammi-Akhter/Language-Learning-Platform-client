@@ -62,18 +62,10 @@ const StatsSection = () => {
       <h2 className="md:text-3xl text-xl font-bold text-center mb-8 text-indigo-700">Platform Statistics</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:px-0 px-10 md:py-0 py-5 ">
         <div className="stat-card shadow-lg rounded-2xl md:p-6 text-center hover:shadow-indigo-200 transition">
-          <h1 className="md:text-4xl text-xl font-bold text-indigo-600">{userCount}</h1>
-          <p className="md:text-lg font-medium text-gray-700 mt-2">Users</p>
-        </div>
-        <div className="stat-card shadow-lg rounded-2xl md:p-6 text-center hover:shadow-indigo-200 transition">
-          <p className="md:text-4xl text-xl font-bold text-indigo-600">{languageCount}</p>
-          <p className="md:text-lg font-medium text-gray-700 mt-2">Languages</p>
-        </div>
-        <div className="stat-card shadow-lg rounded-2xl md:p-6 text-center hover:shadow-indigo-200 transition">
           <p className="md:text-4xl text-xl font-bold text-indigo-600">{tutorCount}</p>
           <p className="md:text-lg font-medium text-gray-700 mt-2">Tutors</p>
         </div>
-        <div className="stat-card shadow-lg rounded-2xl md:p-6 text-center hover:shadow-indigo-200 transition">
+          <div className="stat-card shadow-lg rounded-2xl md:p-6 text-center hover:shadow-indigo-200 transition">
           <p className="md:text-4xl text-xl font-bold text-indigo-600">{reviewsCount} <span className="text-xs">Tutors</span></p>
           <div className="flex items-center justify-center gap-2 mt-2">
             <p className="md:text-lg font-medium text-gray-700 ">Rating </p>
@@ -84,6 +76,17 @@ const StatsSection = () => {
             <p className="md:text-lg">+</p>
           </div>
         </div>
+         <div className="stat-card shadow-lg rounded-2xl md:p-6 text-center hover:shadow-indigo-200 transition">
+          <p className="md:text-4xl text-xl font-bold text-indigo-600">{languageCount}</p>
+          <p className="md:text-lg font-medium text-gray-700 mt-2">Languages</p>
+        </div>
+        <div className="stat-card shadow-lg rounded-2xl md:p-6 text-center hover:shadow-indigo-200 transition">
+          <h1 className="md:text-4xl text-xl font-bold text-indigo-600">{userCount}</h1>
+          <p className="md:text-lg font-medium text-gray-700 mt-2">Users</p>
+        </div>
+       
+        
+      
       </div>
     </section>
   );
