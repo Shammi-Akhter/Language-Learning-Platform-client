@@ -9,7 +9,7 @@ const FindTutorsCategory = () => {
   const navigate = useNavigate();
 
 useEffect(() => {
-  setLoading(true); // Start loading
+  setLoading(true); 
 
   fetch(`https://secjaf-server-side.vercel.app/find-tutors/${category}`)
     .then((res) => {
@@ -20,18 +20,18 @@ useEffect(() => {
     })
     .then((data) => {
       if (!data || data.length === 0) {
-        setLoading(false); // Stop loading before redirect
+        setLoading(false); 
         navigate('/error');
       } else {
         setTutors(data);
         setError('');
-        setLoading(false); // Done loading
+        setLoading(false); 
       }
     })
     .catch((err) => {
       console.error(err);
       setError(err.message);
-      setLoading(false); // Stop loading before redirect
+      setLoading(false); 
       navigate('/error');
     });
 }, [category, navigate]);

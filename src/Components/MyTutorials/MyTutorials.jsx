@@ -5,10 +5,12 @@ import UpdateModal from "../UpdateTutorialModal/UpdateTutorialModal";
 const MyTutorials = () => {
   const [tutorials, setTutorials] = useState([]);
   const [selected, setSelected] = useState(null);
+  const [loading, setLoading] = useState(true); 
   const token = localStorage.getItem('access-token');
 
   const fetchTutorials = async () => {
     try {
+      setLoading(true); 
       const res = await fetch("https://secjaf-server-side.vercel.app/my-tutorials", {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -19,6 +21,8 @@ const MyTutorials = () => {
       setTutorials(safeData);
     } catch (error) {
       toast.error("Failed to load tutorials");
+    } finally {
+      setLoading(false); 
     }
   };
 
@@ -45,6 +49,15 @@ const MyTutorials = () => {
     if (token) fetchTutorials();
   }, [token]);
 
+  
+  if (loading) {
+    return (
+      <div className="fixed inset-0 z-50 bg-white/70 flex items-center justify-center">
+        <div className="w-12 h-12 border-4 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
   return (
     <div className="p-4 sm:p-6 md:p-8 max-w-7xl mx-auto">
       <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center">My Tutorials</h1>
@@ -66,7 +79,7 @@ const MyTutorials = () => {
             </thead>
             <tbody>
               {tutorials.map((item) => (
-                <tr key={item._id} className="border-t ">
+                <tr key={item._id} className="border-t">
                   <td className="p-3">
                     <img
                       src={item.image}

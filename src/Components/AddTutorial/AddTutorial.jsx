@@ -93,7 +93,7 @@ const AddTutorial = () => {
                     type="text" 
                     value={user?.displayName || user?.email || ''} 
                     disabled 
-                    className="input bg-gray-300 input-bordered w-full" 
+                    className="input form-card input-bordered w-full" 
                 />
             </div>
 
@@ -103,7 +103,7 @@ const AddTutorial = () => {
                     type="email" 
                     value={user?.email || ''} 
                     disabled 
-                    className="input bg-gray-300 input-bordered w-full" 
+                    className="input form-card input-bordered w-full" 
                 />
             </div>
 
@@ -115,7 +115,7 @@ const AddTutorial = () => {
                     value={formData.image}
                     onChange={handleChange}
                     required
-                    className="input bg-gray-300 input-bordered w-full"
+                    className="input form-card input-bordered w-full"
                     placeholder="Tutorial image URL"
                 />
             </div>
@@ -128,7 +128,7 @@ const AddTutorial = () => {
                     value={formData.language}
                     onChange={handleChange}
                     required
-                    className="input bg-gray-300 input-bordered w-full"
+                    className="input form-card input-bordered w-full"
                     placeholder="Language"
                 />
             </div>
@@ -143,7 +143,7 @@ const AddTutorial = () => {
                     required
                     min="0"
                     step="0.01"
-                    className="input bg-gray-300 input-bordered w-full"
+                    className="input form-card input-bordered w-full"
                     placeholder="Price"
                 />
             </div>
@@ -155,7 +155,7 @@ const AddTutorial = () => {
                     value={formData.description}
                     onChange={handleChange}
                     required
-                    className="textarea bg-gray-300 textarea-bordered w-full"
+                    className="textarea form-card textarea-bordered w-full"
                     placeholder="Description"
                 />
             </div>

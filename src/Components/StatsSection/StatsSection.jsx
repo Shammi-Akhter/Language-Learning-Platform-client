@@ -31,14 +31,14 @@ const StatsSection = () => {
       const tutors = await tutorsRes.json();
       const tutorials = await tutorialsRes.json();
 
-      // Total Tutor Count = tutors + tutorials
+      
       setTutorCount(tutors.length + tutorials.length);
 
-      // Unique languages from tutors
+      
       const uniqueLanguages = new Set(tutors.map(tutor => tutor.language));
       setLanguageCount(uniqueLanguages.size);
 
-      // Count how many tutors have review > 4
+      
       const tutorsWithGoodReviews = tutors.filter(tutor => tutor.review > 4);
       setReviewsCount(tutorsWithGoodReviews.length);
 
@@ -53,7 +53,9 @@ const StatsSection = () => {
 
   if (error) return <div>Error: {error}</div>;
   if (userCount === null || tutorCount === null || languageCount === null || reviewsCount === null)
-    return <div>Loading statistics...</div>;
+    return  <div className="fixed inset-0 z-50 bg-white/70 flex items-center justify-center">
+        <div className="w-12 h-12 border-4 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
+      </div>;
 
   return (
     <section className="container md:mx-auto md:my-10 my-5 md:px-4 px-2 md:py-10 py-5">

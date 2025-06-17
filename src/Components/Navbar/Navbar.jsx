@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <div className="text-black border-b-2 border-white">
       <div className="container mx-auto navbar flex justify-between items-center p-4">
-        {/* Logo */}
+      
         <Link to="/">
           <img
             className="lg:w-[170px] w-[80px] md:h-[50px] h-[20px] md:p-2"
@@ -28,7 +28,7 @@ const Navbar = () => {
           />
         </Link>
 
-        {/* Desktop Menu */}
+        
         <div className="hidden lg:flex navbar-center">
           <ul className="menu menu-horizontal px-1 flex gap-5 items-center">
             <NavLink to="/" className="text-blue-600 font-semibold">Home</NavLink>
@@ -39,13 +39,13 @@ const Navbar = () => {
           </ul>
         </div>
 
-        {/* Desktop Right Side */}
+        
         <div className="hidden lg:flex items-center gap-6 relative">
   {loading ? (
     <span className="loading loading-spinner loading-sm"></span>
   ) : user ? (
     <>
-      {/* Profile + Hover Name + Dropdown */}
+      
       <div className="relative group flex items-center">
          <span className="mr-2 text-sm font-semibold text-gray-700 hidden group-hover:inline-block transition-all duration-300">
           {user.displayName}
@@ -69,7 +69,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Logout button separated */}
+      
       <button
         onClick={logout}
         className="btn btn-sm bg-red-400 text-white rounded-2xl hover:bg-red-500 transition"
@@ -77,7 +77,7 @@ const Navbar = () => {
         Logout
       </button>
 
-      {/* Theme toggle button separated */}
+      
       <button
         onClick={toggleTheme}
         className="text-2xl text-gray-500 hover:text-yellow-500 transition-colors"
@@ -99,7 +99,7 @@ const Navbar = () => {
 </div>
 
 
-        {/* Mobile Menu Toggle */}
+      
         <div className="lg:hidden">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -110,7 +110,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+  
       {isMenuOpen && (
         <div className="lg:hidden px-6 pb-4">
           <ul className="space-y-3 text-center">
@@ -121,7 +121,7 @@ const Navbar = () => {
             {user && <NavLink to="/my-tutorials" onClick={() => setIsMenuOpen(false)} className="block">My Tutorials</NavLink>}
           </ul>
 
-          {/* Mobile Auth */}
+        
           <div className="mt-4 flex flex-col items-center gap-3 relative">
             {loading ? (
               <span className="loading loading-spinner loading-sm"></span>

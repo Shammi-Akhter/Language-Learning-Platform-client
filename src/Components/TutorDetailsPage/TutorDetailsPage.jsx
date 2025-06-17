@@ -8,7 +8,7 @@ const TutorDetails = () => {
   const [tutor, setTutor] = useState(null);
   const [isBooked, setIsBooked] = useState(false);
   const { user } = useAuth();
-  const navigate = useNavigate(); // 👈
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     fetch(`https://secjaf-server-side.vercel.app/tutors/${id}`, {
@@ -24,7 +24,7 @@ const TutorDetails = () => {
       })
       .then(data => setTutor(data))
       .catch(() => {
-        navigate('/error'); // 👈 navigate to error page
+        navigate('/error'); 
       });
   }, [id, navigate]);
 
@@ -79,7 +79,9 @@ const TutorDetails = () => {
       .catch(() => toast.error('Booking failed'));
   };
 
-  if (!tutor) return <p>Loading...</p>;
+  if (!tutor) return  <div className="fixed inset-0 z-50 bg-white/70 flex items-center justify-center">
+        <div className="w-12 h-12 border-4 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
+      </div>;
 
   return (
     <div className=" max-w-2xl mx-auto border-2 border-white md:p-4 p-2 md:my-10 rounded-2xl shadow-lg">

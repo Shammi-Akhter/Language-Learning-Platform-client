@@ -19,6 +19,9 @@
 
   --bg-navbar-light: rgb(236, 240, 245);
   --bg-navbar-dark: black;
+
+  --bg-form-light: rgb(236, 240, 245);
+  --bg-form-dark: rgb(66, 59, 59);
 }
 
 .light-theme {
@@ -28,6 +31,7 @@
   --bg-section: var(--bg-section-light);
   --bg-secondary: var(--bg-secondary-light);
   --bg-navbar: var(--bg-navbar-light);
+  --bg-form: var(--bg-form-light);
 }
 
 .dark-theme {
@@ -37,6 +41,7 @@
   --bg-section: var(--bg-section-dark);
   --bg-secondary: var(--bg-secondary-dark);
   --bg-navbar: var(--bg-navbar-dark);
+  --bg-form: var(--bg-form-dark);
 }
 
 .App{
@@ -56,6 +61,9 @@ input,label,button,p,span,h1,h2,a{
 
 .stat-card{
   background-color: var(--bg-section);
+}
+.form-card{
+  background-color: var(--bg-form);
 }
 
 .footer{

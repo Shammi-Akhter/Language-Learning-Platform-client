@@ -23,16 +23,16 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="bg-gray-50 py-12 px-6 md:px-16 lg:px-24">
+    <div className=" py-12 px-6 md:px-16 lg:px-24">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl font-bold text-indigo-800 mb-6">Contact Us</h2>
         <p className="text-gray-700 text-lg mb-10">
           Have a question, suggestion, or need support? Feel free to reach out to us.
         </p>
 
-        <form onSubmit={handleSubmit} className="space-y-6 bg-white shadow-md rounded-lg p-8">
+        <form onSubmit={handleSubmit} className="space-y-6 border-2 border-white shadow-2xl rounded-lg p-8 ">
           <div>
-            <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">Name</label>
+            <label htmlFor="name" className="block  font-semibold mb-2">Name</label>
             <input
               type="text"
               id="name"
@@ -46,7 +46,7 @@ const ContactUs = () => {
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">Email</label>
+            <label htmlFor="email" className="block  font-semibold mb-2">Email</label>
             <input
               type="email"
               id="email"

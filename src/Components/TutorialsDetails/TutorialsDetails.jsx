@@ -1,11 +1,11 @@
-import { useParams, useNavigate } from 'react-router'; // updated import
+import { useParams, useNavigate } from 'react-router'; 
 import { toast } from 'react-hot-toast';
 import { useAuth } from '../../context/AuthContext';
 import { useEffect, useState } from 'react';
 
 const TutorialDetails = () => {
     const { id } = useParams();
-    const navigate = useNavigate(); // 👈
+    const navigate = useNavigate(); 
     const [tutorial, setTutorial] = useState(null);
     const [isBooked, setIsBooked] = useState(false);
     const { user } = useAuth();
@@ -24,7 +24,7 @@ const TutorialDetails = () => {
             })
             .then(data => setTutorial(data))
             .catch(() => {
-                navigate('/error'); // 👈 navigate to error page
+                navigate('/error'); 
             });
     }, [id, navigate]);
 
@@ -79,7 +79,9 @@ const TutorialDetails = () => {
             .catch(() => toast.error('Booking failed'));
     };
 
-    if (!tutorial) return <p>Loading...</p>;
+    if (!tutorial) return   <div className="fixed inset-0 z-50 bg-white/70 flex items-center justify-center">
+        <div className="w-12 h-12 border-4 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
+      </div>;
 
     return (
         <div className="p-6 max-w-2xl mx-auto">
