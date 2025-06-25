@@ -147,10 +147,11 @@ Create .env files in both /client and /server directories with the necessary env
 ## 📸 Application Screenshots
 
 <p align="center">
-  <img src="" width="65%">
-  <img src="" width="65%">
-  <img src="" width="45%">
-  <img src="" width="100%">
+  <img src="https://i.postimg.cc/j2GVQgmJ/Secjaf-1.png" width="65%">
+  <img src="https://i.postimg.cc/Nj0H3dzH/secjaf-3.png" width="65%">
+  <img src="https://i.postimg.cc/QxJGWbSV/secjaf-2.png" width="65%">
+  <img src="https://i.postimg.cc/MpvJ0wyT/secjaf-4.png" width="65%">
+  <img src="https://i.postimg.cc/50McMFDY/secjaf-5.png" width="65%">
 </p>
 
 ---
