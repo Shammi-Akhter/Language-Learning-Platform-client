@@ -4,6 +4,8 @@
 **SecJaf** is a modern, user-friendly platform that connects users with tutors for various languages in a friendly learning environment. The project allows users to browse, review, and book language tutors online.
 
 🔗 **Live Site**: [SecJaf Live](https://language-exchange-app-dde7b.web.app/)   
+🔗 **Backend Server**: [SecJaf Server on Vercel](https://secjaf-server-side.vercel.app/) 
+
 
 ---
 
