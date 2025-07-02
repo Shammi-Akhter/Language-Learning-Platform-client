@@ -4,19 +4,19 @@ const features = [
   {
     title: "Learn From Native Speakers",
     description:
-      "Practice with real speakers to gain authentic pronunciation, cultural insights, and confidence.",
+      "Practice with real native speakers to enhance your pronunciation, fluency, and comprehension. Gain firsthand insights into cultural nuances, idiomatic expressions, and real-world conversations. Whether you're preparing for travel, work, or personal growth, interacting with native speakers builds confidence and helps you communicate more naturally and effectively.",
     image: "https://i.postimg.cc/rmhXfDQW/feature-1.jpg",
   },
   {
     title: "Interactive & Fun Lessons",
     description:
-      "Gamified lessons, live quizzes, and personalized feedback make learning effective and enjoyable.",
+      "Experience language learning like never before with engaging, gamified lessons designed to keep you motivated. Participate in live quizzes that test your knowledge in real time, and receive instant, personalized feedback to help you improve continuously. Each lesson is crafted to be dynamic and enjoyable, blending education with entertainment to make learning both effective and fun. Whether you're a beginner or advancing your skills, our interactive approach keeps you actively involved every step of the way.",
     image: "https://i.postimg.cc/d04xYzrc/feature-2.png",
   },
   {
     title: "Track Your Progress Easily",
     description:
-      "Monitor your growth with personalized dashboards, level badges, and performance charts.",
+      "Stay motivated by clearly seeing how far you've come. With personalized dashboards, you can effortlessly monitor your learning journey—track completed lessons, time spent, and skill improvements. Earn level badges as you progress, adding a sense of achievement to every milestone. Visual performance charts help you identify strengths and focus on areas that need improvement, ensuring a smarter, more goal-oriented learning experience.",
     image: "https://i.postimg.cc/Kc6FwMmr/feature-3.jpg",
   },
 ];

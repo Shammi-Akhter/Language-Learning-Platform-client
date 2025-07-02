@@ -45,75 +45,81 @@ const UpdateModal = ({ tutorial, onClose, onUpdate }) => {
 
   return (
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-      <div className="bg-blue-400 p-6 rounded-lg w-[90%] max-w-lg h-[80vh] overflow-y-auto">
-        <h2 className="text-xl font-bold mb-4">Update Tutorial</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="flex flex-col">
-            <label className="font-semibold mb-1 text-left">Name (read-only)</label>
+      <div className="nav border-2 border-gray-300 p-4 rounded-2xl shadow-lg w-[90%] max-w-md h-[80vh] overflow-y-auto">
+        <h2 className="text-xl font-semibold mb-4 text-center">Update Tutorial</h2>
+        <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+          <div className="mb-2">
+            <label>User Name</label>
             <input
               type="text"
-              className="input !bg-gray-300 w-full"
               value={tutorial.userName}
               disabled
+              className="input form-card input-bordered w-full"
             />
           </div>
-          <div className="flex flex-col">
-            <label className="font-semibold mb-1 text-left">Email (read-only)</label>
+          <div className="mb-2">
+            <label>Email</label>
             <input
               type="text"
-              className="input !bg-gray-300 w-full"
               value={tutorial.email}
               disabled
+              className="input form-card input-bordered w-full"
             />
           </div>
-          <div className="flex flex-col">
-            <label className="font-semibold mb-1 text-left">Image URL</label>
+          <div className="mb-2">
+            <label>Image URL</label>
             <input
               name="image"
               value={formData.image}
               onChange={handleChange}
-              className="input bg-gray-300 w-full"
               required
+              className="input form-card input-bordered w-full"
+              placeholder="Tutorial image URL"
             />
           </div>
-          <div className="flex flex-col">
-            <label className="font-semibold mb-1 text-left">Language</label>
+          <div className="mb-2">
+            <label>Language</label>
             <input
               name="language"
               value={formData.language}
               onChange={handleChange}
-              className="input bg-gray-300 w-full"
               required
+              className="input form-card input-bordered w-full"
+              placeholder="Language"
             />
           </div>
-          <div className="flex flex-col">
-            <label className="font-semibold mb-1 text-left">Price</label>
+          <div className="mb-2">
+            <label>Price</label>
             <input
               name="price"
               type="number"
               value={formData.price}
               onChange={handleChange}
-              className="input bg-gray-300 w-full"
               required
+              min="0"
+              step="0.01"
+              className="input form-card input-bordered w-full"
+              placeholder="Price"
             />
           </div>
-          <div className="flex flex-col">
-            <label className="font-semibold mb-1 text-left">Description</label>
+          <div className="mb-2">
+            <label>Description</label>
             <textarea
               name="description"
               value={formData.description}
               onChange={handleChange}
-              className="input bg-gray-300 w-full"
               required
+              className="textarea form-card textarea-bordered w-full"
+              placeholder="Description"
             ></textarea>
           </div>
-          <div className="flex flex-col">
-            <label className="font-semibold mb-1 text-left">Review (read-only)</label>
+          <div className="mb-2">
+            <label>Review (read-only)</label>
             <input
               type="text"
-              className="input !bg-gray-300 w-full cursor-not-allowed"
               value={tutorial.review}
               disabled
+              className="input form-card input-bordered w-full"
             />
           </div>
           <div className="flex justify-end space-x-2 pt-2">
@@ -124,7 +130,7 @@ const UpdateModal = ({ tutorial, onClose, onUpdate }) => {
             >
               Cancel
             </button>
-            <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-1 rounded cursor-pointer">
+            <button type="submit" className="btn btn-primary !text-white px-4 py-1 rounded cursor-pointer">
               Update
             </button>
           </div>

@@ -69,7 +69,7 @@ const Category = () => {
               <div className='flex justify-center'>
                 <button
                   onClick={() => handleClick(lang)}
-                  className="mt-auto w-[100px]  bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-3xl transition"
+                  className="mt-auto w-[100px] cursor-pointer bg-blue-400 hover:bg-blue-500 text-white font-bold py-1 px-2 rounded-3xl transition"
                 >
                   See More
                 </button>
