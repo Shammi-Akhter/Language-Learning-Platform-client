@@ -4,6 +4,8 @@
 **SecJaf** is a modern, user-friendly platform that connects users with tutors for various languages in a friendly learning environment. The project allows users to browse, review, and book language tutors online.
 
 🔗 **Live Site**: [SecJaf Live](https://language-exchange-app-dde7b.web.app/)   
+🔗 **Backend Server**: [SecJaf Server on Vercel](https://secjaf-server-side.vercel.app/) 
+
 
 ---
 
@@ -109,3 +111,50 @@ SecJaf enables users to:
 📄 Licensed under ISC License
 
 ---
+## 🛠️ How to Run Locally
+
+Follow these steps to run the project on your local machine:
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/Shammi-Akhter/SecJaf.git
+```
+### 2️⃣ Set Up the Client
+```bash
+
+cd client
+npm install
+npm run dev
+```
+This will install the frontend dependencies and start the client on http://localhost:5173 (default Vite port).
+
+### 3️⃣ Set Up the Server
+Open a new terminal tab or window, then run:
+
+```bash
+cd server
+npm install
+npm run start
+```
+This will install the backend dependencies and start the server on http://localhost:5000 or your configured port.
+
+### 4️⃣ Configure Environment Variables
+Create .env files in both /client and /server directories with the necessary environment variables:
+
+
+---
+
+
+## 📸 Application Screenshots
+
+<p align="center">
+  <img src="https://i.postimg.cc/j2GVQgmJ/Secjaf-1.png" width="65%">
+  <img src="https://i.postimg.cc/Nj0H3dzH/secjaf-3.png" width="65%">
+  <img src="https://i.postimg.cc/QxJGWbSV/secjaf-2.png" width="65%">
+  <img src="https://i.postimg.cc/MpvJ0wyT/secjaf-4.png" width="65%">
+  <img src="https://i.postimg.cc/50McMFDY/secjaf-5.png" width="65%">
+</p>
+
+---
+
