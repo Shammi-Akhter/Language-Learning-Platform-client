@@ -22,7 +22,7 @@ const Category = () => {
           throw new Error("Received data is not an array");
         }
         setCategories(data);
-        setFilteredCategories(data); 
+        setFilteredCategories(data);
       } catch (err) {
         console.error("Fetch error:", err);
         setError(err.message);
@@ -50,29 +50,29 @@ const Category = () => {
   if (error) return <div>Error loading categories: {error}</div>;
 
   return (
-    <div className='container mx-auto md:mt-10 md:mb-15 md:p-5'>
-      <h1 className="md:text-4xl text-xl font-bold text-center text-indigo-700 mb-6">Choose a Language to Learn</h1>
-
-
-      
-
-
+    <div className='container mx-auto  md:my-10 my-5  md:p-5'>
+      <h1 className="md:text-3xl text-xl font-bold text-center text-indigo-700 mb-6">Choose a Language to Learn</h1>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-2">
         {filteredCategories.length > 0 ? (
           filteredCategories.map((lang, i) => (
             <div
               key={i}
-              onClick={() => handleClick(lang)}
-              className="cursor-pointer shadow p-4 rounded-lg bg-gradient-to-r from-blue-200 via-purple-200 to-pink-100 hover:bg-blue-50 transition flex flex-col justify-between"
+              className=" shadow p-4 rounded-lg bg-gradient-to-r  from-blue-200 to-blue-100 transition flex flex-col justify-between h-full"
             >
               <img
                 src={`https://img.icons8.com/ios-filled/100/language.png`}
                 alt={lang}
-                className="w-12 h-12 mx-auto"
+                className="w-16 h-16 mx-auto mb-2"
               />
-              <div className='flex items-center justify-between mt-4'>
-                <h2 className="text-xl font-semibold mt-2">{lang}</h2>
-                <IoIosArrowDropright className='md:w-[30px] md:h-[30px]' />
+              <h2 className="text-xl font-semibold !text-gray-700  text-center mb-2">{lang}</h2>
+              <p className="!text-gray-700 text-sm text-center mb-4 flex-1">Learn {lang} from expert tutors and interactive lessons. Start your journey today!</p>
+              <div className='flex justify-center'>
+                <button
+                  onClick={() => handleClick(lang)}
+                  className="mt-auto w-[100px]  bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-3xl transition"
+                >
+                  See More
+                </button>
               </div>
             </div>
           ))

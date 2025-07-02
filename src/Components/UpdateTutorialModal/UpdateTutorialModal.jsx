@@ -45,78 +45,78 @@ const UpdateModal = ({ tutorial, onClose, onUpdate }) => {
 
   return (
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-      <div className="bg-indigo-300 p-6 rounded-lg w-[90%] max-w-lg">
+      <div className="bg-blue-400 p-6 rounded-lg w-[90%] max-w-lg h-[80vh] overflow-y-auto">
         <h2 className="text-xl font-bold mb-4">Update Tutorial</h2>
-        <form onSubmit={handleSubmit} className="space-y-3">
-          <div>
-            <label  className="md:pr-2">Name (read-only)</label>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="flex flex-col">
+            <label className="font-semibold mb-1 text-left">Name (read-only)</label>
             <input
               type="text"
-              className="input !bg-gray-300"
+              className="input !bg-gray-300 w-full"
               value={tutorial.userName}
               disabled
             />
           </div>
-          <div>
-            <label className="md:pr-2">Email (read-only)</label>
+          <div className="flex flex-col">
+            <label className="font-semibold mb-1 text-left">Email (read-only)</label>
             <input
               type="text"
-              className="input !bg-gray-300"
+              className="input !bg-gray-300 w-full"
               value={tutorial.email}
               disabled
             />
           </div>
-          <div>
-            <label className="md:pr-2">Image URL</label>
+          <div className="flex flex-col">
+            <label className="font-semibold mb-1 text-left">Image URL</label>
             <input
               name="image"
               value={formData.image}
               onChange={handleChange}
-              className="input bg-gray-300"
+              className="input bg-gray-300 w-full"
               required
             />
           </div>
-          <div>
-            <label className="md:pr-2">Language</label>
+          <div className="flex flex-col">
+            <label className="font-semibold mb-1 text-left">Language</label>
             <input
               name="language"
               value={formData.language}
               onChange={handleChange}
-              className="input bg-gray-300"
+              className="input bg-gray-300 w-full"
               required
             />
           </div>
-          <div>
-            <label className="md:pr-2">Price</label>
+          <div className="flex flex-col">
+            <label className="font-semibold mb-1 text-left">Price</label>
             <input
               name="price"
               type="number"
               value={formData.price}
               onChange={handleChange}
-              className="input bg-gray-300"
+              className="input bg-gray-300 w-full"
               required
             />
           </div>
-          <div>
-            <label className="md:pr-2">Description</label>
+          <div className="flex flex-col">
+            <label className="font-semibold mb-1 text-left">Description</label>
             <textarea
               name="description"
               value={formData.description}
               onChange={handleChange}
-              className="input bg-gray-300"
+              className="input bg-gray-300 w-full"
               required
             ></textarea>
           </div>
-          <div>
-            <label className="md:pr-2">Review (read-only)</label>
+          <div className="flex flex-col">
+            <label className="font-semibold mb-1 text-left">Review (read-only)</label>
             <input
               type="text"
-              className="input !bg-gray-300 cursor-not-allowed"
+              className="input !bg-gray-300 w-full cursor-not-allowed"
               value={tutorial.review}
               disabled
             />
           </div>
-          <div className="flex justify-end space-x-2">
+          <div className="flex justify-end space-x-2 pt-2">
             <button
               type="button"
               className="bg-gray-300 hover:bg-gray-500 text-white px-4 py-1 rounded cursor-pointer"
@@ -124,7 +124,7 @@ const UpdateModal = ({ tutorial, onClose, onUpdate }) => {
             >
               Cancel
             </button>
-            <button type="submit" className="bg-blue-300 text-white px-4 py-1 rounded cursor-pointer">
+            <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-1 rounded cursor-pointer">
               Update
             </button>
           </div>

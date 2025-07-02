@@ -59,7 +59,7 @@ const StatsSection = () => {
 
   return (
     <section className="container md:mx-auto md:my-10 my-5 md:px-4 px-2 md:py-10 py-5">
-      <h2 className="md:text-3xl text-xl font-bold text-center mb-8 text-indigo-700">Platform Statistics</h2>
+      <h2 className="md:text-3xl text-xl font-bold text-center mb-8 ">Platform Statistics</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:px-0 px-10 md:py-0 py-5 ">
         <div className="stat-card shadow-lg rounded-2xl md:p-6 text-center hover:shadow-indigo-200 transition">
           <p className="md:text-4xl text-xl font-bold text-indigo-600">{tutorCount}</p>

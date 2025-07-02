@@ -7,7 +7,7 @@ const FindTutor = () => {
     const [filteredTutors, setFilteredTutors] = useState([]);
 
     useEffect(() => {
-        fetch('https://secjaf-server-side.vercel.app/tutorials')
+        fetch('https://secjaf-server-side.vercel.app/tutors')
             .then(res => res.json())
             .then(data => {
                 setTutors(data);

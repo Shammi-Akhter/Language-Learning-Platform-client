@@ -23,9 +23,9 @@ const features = [
 console.log(motion);
 const FeatureSection = () => {
   return (
-    <section className="py-16 ">
+    <section className="  md:my-10 my-5 md:py-10 py-5">
       <div className="container mx-auto px-4 space-y-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-indigo-700 md:mb-20">
+        <h2 className="text-2xl md:text-3xl font-bold text-center text-indigo-700 ">
           Why Choose SECJAF?
         </h2>
 

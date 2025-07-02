@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router";
 
 const AddTutorial = () => {
     const { user } = useAuth();
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         image: "",
         language: "",
@@ -76,6 +78,7 @@ const AddTutorial = () => {
 
             toast.success("Tutorial added successfully!");
             setFormData({ image: "", language: "", price: "", description: "" });
+            navigate('/my-tutorials');
             
         } catch (err) {
             console.error('Submit error:', err);
@@ -164,6 +167,7 @@ const AddTutorial = () => {
             <button type="submit" className="btn btn-primary w-full mt-4 !text-white">
                 Submit Tutorial
             </button>
+
         </form>
     );
 };

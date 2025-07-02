@@ -26,13 +26,13 @@ const Banner = () => {
     ];
 
     return (
-        <div className='h-60%'>
-            <div className="w-full h-60% relative container mx-auto md:pt-10">
+        <div className=''>
+            <div className="w-full h-full relative container mx-auto md:pt-2">
 
                 <Slider {...settings}>
                     {images.map((url, idx) => (
                         <div key={idx}>
-                            <img src={url} alt={`Slide ${idx}`} className="w-full h-[800px] object-cover" />
+                            <img src={url} alt={`Slide ${idx}`} className="w-full h-[400px] object-cover" />
                         </div>
                     ))}
                 </Slider>

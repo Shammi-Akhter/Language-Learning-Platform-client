@@ -35,7 +35,7 @@ const Navbar = () => {
               to="/"
               className={({ isActive }) =>
                 `px-2 py-1 rounded-lg transition-all duration-200 font-semibold 
-                ${isActive ? "bg-blue-400 dark:bg-blue-800 text-blue-900 dark:text-white font-bold shadow" : "text-blue-600 dark:text-blue-300"}`
+                ${isActive ? "bg-blue-400 dark:bg-blue-800 text-blue-900 dark:text-white font-bold shadow "  : "text-blue-600 dark:text-blue-300"}`
               }
             >
               Home

@@ -6,7 +6,7 @@ const TeachSection = () => {
       
       
       <div className="w-full md:w-1/2 text-center md:text-left">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-indigo-700 mb-4 leading-snug">
+        <h2 className="text-2xl sm:text-3xl md:text-3xl font-bold text-indigo-700 mb-4 leading-snug">
           Connect with learners from every corner of the globe.
         </h2>
         <p className="text-gray-600 mb-6">
