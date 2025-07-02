@@ -20,18 +20,20 @@ const Root = () => {
   }, [location.pathname]);
 const { theme } = useContext(ThemeContext);
   return (
-   <div className={`App ${theme}`}>
+   <div className={`App ${theme} min-h-screen flex flex-col`}>
     <Toaster/>
-      <Navbar />
-       {loading && (
+    <Navbar />
+    <div className="flex-1 flex flex-col">
+      {loading && (
         <div className="fixed inset-0 z-50 bg-white/70 flex items-center justify-center">
           <div className="w-12 h-12 border-4 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
         </div>
       )}
       <Outlet />
-      <Footer />
     </div>
-  );
+    <Footer />
+  </div>
+);
 };
 
 export default Root;

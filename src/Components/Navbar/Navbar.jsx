@@ -17,7 +17,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="text-black border-b-2 border-white shadow-xl">
+    <nav className="nav sticky top-0 z-50 text-black dark:text-white border-b-2 border-white dark:border-gray-800 shadow-xl">
       <div className="container mx-auto navbar flex justify-between items-center p-4">
 
         <Link to="/">
@@ -30,17 +30,72 @@ const Navbar = () => {
 
 
         <div className="hidden lg:flex navbar-center">
-          <ul className="menu menu-horizontal px-1 flex gap-5 items-center">
-            <NavLink to="/" className="text-blue-600 font-semibold">Home</NavLink>
-            <NavLink to="/find-tutors" className="text-blue-600 font-semibold">Find Tutors</NavLink>
-            {user && <NavLink to="/my-booked-tutors" className="text-amber-500 font-semibold">My Booked Tutor</NavLink>}
-            {user && <NavLink to="/add-tutorials" className="text-blue-600 font-semibold">Add Tutorials</NavLink>}
-            {user && <NavLink to="/my-tutorials" className="text-amber-500 font-semibold">My Tutorials</NavLink>}
+          <ul className="menu menu-horizontal px-1 flex gap-1 items-center">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `px-2 py-1 rounded-lg transition-all duration-200 font-semibold 
+                ${isActive ? "bg-blue-400 dark:bg-blue-800 text-blue-900 dark:text-white font-bold shadow" : "text-blue-600 dark:text-blue-300"}`
+              }
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/find-tutors"
+              className={({ isActive }) =>
+                `px-2 py-1 rounded-lg transition-all duration-200 font-semibold 
+                ${isActive ? "bg-blue-400 dark:bg-blue-800 text-blue-900 dark:text-white font-bold shadow" : "text-blue-600 dark:text-blue-300"}`
+              }
+            >
+              Find Tutors
+            </NavLink>
+            {user && (
+              <NavLink
+                to="/my-booked-tutors"
+                className={({ isActive }) =>
+                  `px-2 py-1 rounded-lg transition-all duration-200 font-semibold 
+                  ${isActive ? "bg-blue-400 dark:bg-amber-700 text-amber-700 dark:text-white font-bold shadow" : "text-amber-500 dark:text-amber-300"}`
+                }
+              >
+                My Booked Tutor
+              </NavLink>
+            )}
+            {user && (
+              <NavLink
+                to="/add-tutorials"
+                className={({ isActive }) =>
+                  `px-2 py-1 rounded-lg transition-all duration-200 font-semibold 
+                  ${isActive ? "bg-blue-400 dark:bg-blue-800 text-blue-900 dark:text-white font-bold shadow" : "text-blue-600 dark:text-blue-300"}`
+                }
+              >
+                Add Tutorials
+              </NavLink>
+            )}
+            {user && (
+              <NavLink
+                to="/my-tutorials"
+                className={({ isActive }) =>
+                  `px-2 py-1 rounded-lg transition-all duration-200 font-semibold 
+                  ${isActive ? "bg-blue-400 dark:bg-amber-700 text-amber-700 dark:text-white font-bold shadow" : "text-amber-500 dark:text-amber-300"}`
+                }
+              >
+                My Tutorials
+              </NavLink>
+            )}
+            <NavLink
+              to="/about-us"
+              className={({ isActive }) =>
+                `px-2 py-1 rounded-lg transition-all duration-200 font-semibold 
+                ${isActive ? "bg-blue-400 dark:bg-blue-800 text-blue-900 dark:text-white font-bold shadow" : "text-blue-600 dark:text-blue-300"}`
+              }
+            >
+              About us
+            </NavLink>
           </ul>
         </div>
 
 
-        <div className="hidden lg:flex items-center gap-6 relative">
+        <div className="hidden lg:flex items-center gap-2 relative">
           {loading ? (
             <span className="loading loading-spinner loading-sm"></span>
           ) : user ? (
@@ -59,7 +114,7 @@ const Navbar = () => {
 
 
                 <div
-                  className={`absolute right-0 top-full mt-3 w-48 p-3 bg-white text-gray-800 rounded-xl shadow-xl border border-gray-200 z-50 ${isProfileOpen ? 'block' : 'hidden'
+                  className={`absolute right-0 top-full mt-3 w-48 p-3 bg-white dark:bg-gray-900 text-gray-800 dark:text-white rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 z-50 ${isProfileOpen ? 'block' : 'hidden'
                     }`}
                 >
                   <div className="text-center font-semibold ">{user.displayName}</div>
@@ -71,7 +126,7 @@ const Navbar = () => {
 
               <button
                 onClick={logout}
-                className="btn btn-sm bg-red-400 text-white rounded-2xl hover:bg-red-500 transition"
+                className="btn btn-sm bg-blue-400 text-white rounded-2xl hover:bg-red-500 transition"
               >
                 Logout
               </button>
@@ -81,10 +136,10 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Link to="/login" className="btn rounded-2xl bg-blue-200 text-white">
+              <Link to="/login" className="btn rounded-2xl bg-blue-400 dark:bg-blue-700 text-white">
                 Log In
               </Link>
-              <Link to="/register" className="btn rounded-2xl bg-blue-200 text-white">
+              <Link to="/register" className="btn rounded-2xl bg-blue-400 dark:bg-blue-700 text-white">
                 Register
               </Link>
                
@@ -114,13 +169,14 @@ const Navbar = () => {
 
 
       {isMenuOpen && (
-        <div className="lg:hidden px-6 pb-4">
+        <div className="lg:hidden px-6 pb-4 bg-white dark:bg-black">
           <ul className="space-y-3 text-center">
-            <NavLink to="/" onClick={() => setIsMenuOpen(false)} className="block">Home</NavLink>
-            <NavLink to="/find-tutors" onClick={() => setIsMenuOpen(false)} className="block">Find Tutors</NavLink>
-            {user && <NavLink to="/my-booked-tutors" onClick={() => setIsMenuOpen(false)} className="block">My Booked Tutor</NavLink>}
-            {user && <NavLink to="/add-tutorials" onClick={() => setIsMenuOpen(false)} className="block">Add Tutorials</NavLink>}
-            {user && <NavLink to="/my-tutorials" onClick={() => setIsMenuOpen(false)} className="block">My Tutorials</NavLink>}
+            <NavLink to="/" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => `block px-3 py-1 rounded-lg transition-all duration-200 font-semibold  ${isActive ? "bg-blue-100 dark:bg-blue-800 text-blue-900 dark:text-white font-bold shadow" : "text-blue-600 dark:text-blue-300"}`}>Home</NavLink>
+            <NavLink to="/find-tutors" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => `block px-3 py-1 rounded-lg transition-all duration-200 font-semibold  ${isActive ? "bg-blue-100 dark:bg-blue-800 text-blue-900 dark:text-white font-bold shadow" : "text-blue-600 dark:text-blue-300"}`}>Find Tutors</NavLink>
+            {user && <NavLink to="/my-booked-tutors" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => `block px-3 py-1 rounded-lg transition-all duration-200 font-semibold  ${isActive ? "bg-amber-100 dark:bg-amber-700 text-amber-700 dark:text-white font-bold shadow" : "text-amber-500 dark:text-amber-300"}`}>My Booked Tutor</NavLink>}
+            {user && <NavLink to="/add-tutorials" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => `block px-3 py-1 rounded-lg transition-all duration-200 font-semibold  ${isActive ? "bg-blue-100 dark:bg-blue-800 text-blue-900 dark:text-white font-bold shadow" : "text-blue-600 dark:text-blue-300"}`}>Add Tutorials</NavLink>}
+            {user && <NavLink to="/my-tutorials" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => `block px-3 py-1 rounded-lg transition-all duration-200 font-semibold  ${isActive ? "bg-amber-100 dark:bg-amber-700 text-amber-700 dark:text-white font-bold shadow" : "text-amber-500 dark:text-amber-300"}`}>My Tutorials</NavLink>}
+            <NavLink to="/about-us" onClick={() => setIsMenuOpen(false)} className={({ isActive }) => `block px-3 py-1 rounded-lg transition-all duration-200 font-semibold  ${isActive ? "bg-blue-100 dark:bg-blue-800 text-blue-900 dark:text-white font-bold shadow" : "text-blue-600 dark:text-blue-300"}`}>About us</NavLink>
           </ul>
 
 
@@ -138,17 +194,17 @@ const Navbar = () => {
                     onClick={toggleProfileDropdown}
                   />
                   {isProfileOpen && (
-                    <div className="absolute  top-[-10px] left-10 mt-2 px-1 py-1 w-[130px] text-sm bg-blue-500 text-white rounded shadow text-center">
+                    <div className="absolute  top-[-10px] left-10 mt-2 px-1 py-1 w-[130px] text-sm bg-blue-500 dark:bg-blue-800 text-white rounded shadow text-center">
                       {user.displayName}
                     </div>
                   )}
                 </div>
-                <button onClick={logout} className="btn btn-sm bg-blue-300 text-white rounded-2xl">Logout</button>
+                <button onClick={logout} className="btn btn-sm bg-blue-300 dark:bg-blue-700 text-white rounded-2xl">Logout</button>
               </>
             ) : (
               <>
-                <Link to="/login" onClick={() => setIsMenuOpen(false)} className="btn bg-blue-400 text-white rounded-2xl">Log In</Link>
-                <Link to="/register" onClick={() => setIsMenuOpen(false)} className="btn bg-blue-400 text-white rounded-2xl">Register</Link>
+                <Link to="/login" onClick={() => setIsMenuOpen(false)} className="btn bg-blue-600 dark:bg-blue-700 text-white rounded-2xl">Log In</Link>
+                <Link to="/register" onClick={() => setIsMenuOpen(false)} className="btn bg-blue-600 dark:bg-blue-700 text-white rounded-2xl">Register</Link>
                 <button
               onClick={toggleTheme}
               className="text-2xl text-gray-500 hover:text-yellow-500"
@@ -162,7 +218,7 @@ const Navbar = () => {
 
         </div>
       )}
-    </div>
+    </nav>
   );
 };
 

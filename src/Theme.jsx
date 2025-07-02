@@ -30,6 +30,13 @@ const ThemeProvider = ({ children }) => {
     };
 
     refreshTheme();
+
+    // Add or remove 'dark' class on <html> for Tailwind dark mode
+    if (theme === "dark-theme") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
   }, [theme]);
 
   return (

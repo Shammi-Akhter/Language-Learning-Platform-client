@@ -12,7 +12,7 @@ const Home = () => {
             <StatsSection/>
             <Category/>
             <FeatureSection/>
-            <div className='bg-pink-200 p-8 shadow-md  mt-10'>
+            <div className='bg-gradient-to-r from-blue-400 via-purple-200 to-white-100 p-8 shadow-md  mt-10'>
                 <h1 className="text-3xl font-bold text-center my-8">Explore Our Categories</h1>
                 <p className="text-center text-gray-600 mb-8">Find the perfect tutor for your learning needs.</p>
             </div>
