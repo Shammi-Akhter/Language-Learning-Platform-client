@@ -13,6 +13,7 @@ const Footer = () => {
         <NavLink to="https://preply.com/" target='_blank' className="link link-hover !text-white ">  Learn more about languages</NavLink> 
         <NavLink to="/privacy-policy" className="link link-hover !text-white ">  Privacy Policy</NavLink>
        
+       
       </nav>
       <nav>
         <div className="grid grid-flow-col gap-4">
