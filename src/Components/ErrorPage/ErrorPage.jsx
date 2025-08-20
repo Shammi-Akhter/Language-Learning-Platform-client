@@ -8,7 +8,7 @@ const ErrorPage = () => {
     return (
         <div >
             <Helmet>
-                <title>Error Page | Secjaf</title>
+                <title>Error Page | Secjaf</title> 
             </Helmet>
             <div className="min-h-screen flex flex-col items-center justify-center  text-center p-4">
       <h1 className="text-6xl font-bold  mb-4">404</h1>
