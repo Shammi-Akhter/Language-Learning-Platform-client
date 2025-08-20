@@ -10,6 +10,7 @@ const AboutUs = () => {
                         <span className="font-semibold">SECJAF</span> is a dynamic language learning platform designed to help you find expert tutors, watch high-quality tutorials, and master new languages efficiently. Whether you're a beginner or looking to polish your fluency, SECJAF is your one-stop solution for all language learning needs.
                     </p>
 
+
                     <p className=" text-lg mb-6 leading-relaxed">
                         Our platform connects students with qualified tutors from around the world. You can browse detailed tutor profiles, schedule lessons, and even leave reviews to help others in their language journey.
                     </p>
@@ -17,6 +18,7 @@ const AboutUs = () => {
                     <p className=" text-lg mb-6 leading-relaxed">
                         We offer tutorials in multiple languages, cover grammar, vocabulary, pronunciation, and cultural aspects to give learners a rich and immersive experience. Our goal is to make language learning accessible, personalized, and enjoyable for everyone.
                     </p>
+
 
                     <ul className="list-disc list-inside  text-lg">
                         <li>Find tutors by language or category</li>
